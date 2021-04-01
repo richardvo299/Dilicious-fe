@@ -1,0 +1,26 @@
+.cat-btn {
+    border: 0;
+    background-color: #f0eadd;
+    color: #4e3021;
+}
+
+.cat-btn:hover {
+    border: 0;
+    background-color: #4e3021;
+    color: #f0eadd;
+    box-shadow: 0 0 0 0;
+}
+
+.cat-btn:active {
+    border: 0;
+    background-color: #4e3021;
+    color: #f0eadd;
+    box-shadow: 0 0 0 0;
+}
+
+.cat-btn:focus {
+    border: 0;
+    background-color: #4e3021;
+    color: #f0eadd;
+    box-shadow: 0 0 0 0;
+}

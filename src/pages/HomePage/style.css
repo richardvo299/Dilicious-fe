@@ -6,3 +6,8 @@
 .cards-wrapper{
     margin: 0 64px;
 }
+
+.categories-row {
+    margin-left: 64px;
+    margin-right: auto;
+}

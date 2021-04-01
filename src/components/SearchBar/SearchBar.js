@@ -17,11 +17,11 @@ const SearchBar = () => {
         setKeywords("");
     };
     return (
-        <div>
+        <div className="searchitembar">
             <Form inline className="search-bar" onSubmit={handleSubmit}>
-                <FormControl type="text" placeholder="Search item..." className="mr-sm-2 search-bar-input" onChange={handleChange} />
+                <FormControl type="text" placeholder="Search item..." className="search-bar-input" onChange={handleChange} />
                 {/* <Button variant="outline-success">Search</Button> */}
-                <FontAwesomeIcon icon="search" size='md' />
+                {/* <FontAwesomeIcon icon="search" size='md' /> */}
             </Form>
         </div>
     );

@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Row, Col, Button, ButtonGroup, Container } from "react-bootstrap";
 import productActions from "../../redux/actions/product.actions";
+import categoryActions from "../../redux/actions/category.actions";
 import Product from "../../components/Products/Product";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Categories from "../../components/Categories/Categories";
 import HomeCarousel from "../../components/HomeCarousel/HomeCarousel";
+import Pagination from "../../components/Pagination/Pagination";
 import arrowdown from "../../images/arrowdown.svg";
 import "./style.css";
 
@@ -13,9 +16,13 @@ export default function HomePage() {
     const dispatch = useDispatch();
     // const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
+    // const categories = useSelector((state) => state.categories.categories);
     // const loading = useSelector((state) => state.product.loading);
     useEffect(() => {
         dispatch(productActions.getAllProducts());
+    }, [dispatch]);
+    useEffect(() => {
+        dispatch(categoryActions.getAllCategories());
     }, [dispatch]);
     return(
         <>
@@ -42,7 +49,11 @@ export default function HomePage() {
             </img>
         </div>
         <div>
-        <SearchBar></SearchBar>
+        
+        <Row className="categories-row">
+            <Col><Categories></Categories></Col>
+            <Col md={{ span: 4, offset: 4 }}><SearchBar></SearchBar></Col>
+        </Row>
         </div>
         <Row className="cards-wrapper">
             <>
@@ -54,7 +65,7 @@ export default function HomePage() {
                 ))}
             </>
         </Row>
-        {/* <Pagination /> */}
+        <Pagination />
     </>
     );
 }

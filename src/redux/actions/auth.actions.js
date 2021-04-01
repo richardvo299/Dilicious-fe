@@ -15,6 +15,7 @@ authActions.login = (email, password) => async (dispatch) => {
 
     dispatch({ type: types.LOGIN_USER_SUCCESS, payload: data.data });
     toast.success(`Welcome ${data.data.user.name}`);
+    window.location.href="/";
   } catch (error) {
     console.error(error);
     dispatch({ type: types.LOGIN_USER_FAIL, payload: error.errors.message });

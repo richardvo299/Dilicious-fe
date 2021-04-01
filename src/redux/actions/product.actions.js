@@ -14,6 +14,7 @@ productActions.getAllProducts = (keywords = "", page = 1) => async (
       type: types.GET_PRODUCTS_SUCCESS,
       payload: data.data,
     });
+    console.log("products data", data.data)
   } catch (error) {
     console.error(error);
     dispatch({ type: types.GET_PRODUCTS_FAIL, payload: error.errors.message });
