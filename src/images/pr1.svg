@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="869px" height="240px" viewBox="0 0 869 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>PR1</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-79.000000, -758.000000)">
+            <g id="PR1" transform="translate(79.000000, 758.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#4E3021" x="0.5" y="0.5" width="868" height="239"></rect>
+                <text id="You-can-just-simply" font-family="Geometria" font-size="28" font-weight="normal" letter-spacing="0.4" fill="#F0EADD">
+                    <tspan x="327.568" y="108">You can just simply choose the flavor </tspan>
+                    <tspan x="352.664" y="136">you love, customize the cake to the </tspan>
+                    <tspan x="403.852" y="164">benefit of your health, add your </tspan>
+                    <tspan x="455.684" y="192">favorite toppings and done!</tspan>
+                </text>
+                <g id="clock2" transform="translate(29.000000, 20.000000)" fill="#F0EADD" fill-rule="nonzero">
+                    <path d="M100,0 C44.7580645,0 0,44.7580645 0,100 C0,155.241935 44.7580645,200 100,200 C155.241935,200 200,155.241935 200,100 C200,44.7580645 155.241935,0 100,0 Z M100,180.645161 C55.4435484,180.645161 19.3548387,144.556452 19.3548387,100 C19.3548387,55.4435484 55.4435484,19.3548387 100,19.3548387 C144.556452,19.3548387 180.645161,55.4435484 180.645161,100 C180.645161,144.556452 144.556452,180.645161 100,180.645161 Z M124.919355,138.548387 L90.6854839,113.669355 C89.4354839,112.741935 88.7096774,111.290323 88.7096774,109.758065 L88.7096774,43.5483871 C88.7096774,40.8870968 90.8870968,38.7096774 93.5483871,38.7096774 L106.451613,38.7096774 C109.112903,38.7096774 111.290323,40.8870968 111.290323,43.5483871 L111.290323,100.685484 L138.225806,120.282258 C140.403226,121.854839 140.846774,124.879032 139.274194,127.056452 L131.693548,137.5 C130.120968,139.637097 127.096774,140.120968 124.919355,138.548387 Z" id="Shape"></path>
+                </g>
+                <text id="TIME-SAVING-ORDER" font-family="Geometria-Medium, Geometria" font-size="32" font-weight="400" letter-spacing="0.457142857" fill="#F0EADD">
+                    <tspan x="497" y="58">TIME SAVING ORDER</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

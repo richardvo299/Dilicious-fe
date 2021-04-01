@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="868px" height="240px" viewBox="0 0 868 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>PR2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-972.000000, -758.000000)">
+            <g id="PR2" transform="translate(972.000000, 758.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#4E3021" x="0.5" y="0.5" width="867" height="239"></rect>
+                <g id="deliver" transform="translate(571.000000, 20.000000)" fill="#F0EADD" fill-rule="nonzero">
+                    <path d="M265.909091,137.5 L259.090909,137.5 L259.090909,95.2734375 C259.090909,90.3125 256.917614,85.546875 253.082386,82.03125 L210.511364,43.0078125 C206.676136,39.4921875 201.477273,37.5 196.065341,37.5 L177.272727,37.5 L177.272727,18.75 C177.272727,8.3984375 168.110795,0 156.818182,0 L20.4545455,0 C9.16193182,0 0,8.3984375 0,18.75 L0,143.75 C0,154.101562 9.16193182,162.5 20.4545455,162.5 L27.2727273,162.5 C27.2727273,183.203125 45.5965909,200 68.1818182,200 C90.7670455,200 109.090909,183.203125 109.090909,162.5 L163.636364,162.5 C163.636364,183.203125 181.960227,200 204.545455,200 C227.130682,200 245.454545,183.203125 245.454545,162.5 L265.909091,162.5 C269.659091,162.5 272.727273,159.6875 272.727273,156.25 L272.727273,143.75 C272.727273,140.3125 269.659091,137.5 265.909091,137.5 Z M68.1818182,181.25 C56.8892045,181.25 47.7272727,172.851563 47.7272727,162.5 C47.7272727,152.148438 56.8892045,143.75 68.1818182,143.75 C79.4744318,143.75 88.6363636,152.148438 88.6363636,162.5 C88.6363636,172.851563 79.4744318,181.25 68.1818182,181.25 Z M204.545455,181.25 C193.252841,181.25 184.090909,172.851563 184.090909,162.5 C184.090909,152.148438 193.252841,143.75 204.545455,143.75 C215.838068,143.75 225,152.148438 225,162.5 C225,172.851563 215.838068,181.25 204.545455,181.25 Z M238.636364,100 L177.272727,100 L177.272727,56.25 L196.065341,56.25 L238.636364,95.2734375 L238.636364,100 Z" id="Shape"></path>
+                </g>
+                <text id="We-offer-front-door" font-family="Geometria" font-size="28" font-weight="normal" letter-spacing="0.4" fill="#F0EADD">
+                    <tspan x="28" y="111">We offer front-door delivery service </tspan>
+                    <tspan x="28" y="139">from 9AM - 6PM Monday - Saturday </tspan>
+                    <tspan x="28" y="167">so you don't have to travel far to get </tspan>
+                    <tspan x="28" y="195">your baked goods.</tspan>
+                </text>
+                <text id="FRONT-DOOR-DELIVERY" font-family="Geometria-Medium, Geometria" font-size="32" font-weight="400" letter-spacing="0.457142857" fill="#F0EADD">
+                    <tspan x="28" y="58">FRONT DOOR DELIVERY</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

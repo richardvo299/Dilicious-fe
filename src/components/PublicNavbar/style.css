@@ -1,0 +1,13 @@
+nav {
+    background-color: #4E3021;
+    color: #f0eadd;
+}
+
+.nav-link {
+    color: #f0eadd !important;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: rgba(240, 234, 221, .1);
+    color: rgba(240, 234, 221, .5);
+}

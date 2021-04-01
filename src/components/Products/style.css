@@ -1,0 +1,108 @@
+.btn-primary {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-primary:hover {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.btn-primary:active {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.btn-primary:focus {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.btn-warning {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+}
+
+.btn-warning:hover {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.btn-warning:active {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.btn-warning:focus {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border-color: #68402d;
+    box-shadow: 0 0 0 0.2rem #b39181;
+}
+
+.card {
+    color: #4E3021;
+    margin: 16px 0;
+}
+
+.card-title {
+    text-transform: uppercase;
+
+}
+
+.card-body {
+    padding: 0;
+    padding-top: 1rem;
+}
+
+.quantity-button {
+    height: 28px;
+    width: 28px;
+    padding: 2px 4px;
+    margin: 0 6px;
+}
+
+.modal-image {
+    width: 100%;
+}
+
+.modal-90w {
+    width: fit-content;
+    max-width: none !important;
+}
+
+.form-group {
+    padding: 0;
+}
+
+.modal-image-wrapper {
+    max-height: 560px;
+    max-width: 560px;
+}
+
+.cancel-button {
+    background-color: #f0eadd;
+    color: #4E3021;
+    margin-left: 8px;
+}
+
+.cancel-button:hover {
+    background-color: #f0eadd;
+    color: #4E3021;
+    margin-left: 8px;
+}
+

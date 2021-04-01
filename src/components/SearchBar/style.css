@@ -1,0 +1,14 @@
+.search-bar {
+    flex-grow: 1;
+}
+
+.search-bar-input {
+    min-width: 300px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    font-style: italic;
+}
