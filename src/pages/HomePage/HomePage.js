@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Row, Col, Button, ButtonGroup, Container } from "react-bootstrap";
@@ -13,17 +13,26 @@ import arrowdown from "../../images/arrowdown.svg";
 import "./style.css";
 
 export default function HomePage() {
+    const [page, setPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
+    const totalPages = useSelector((state) => state.product.totalPages);
+
+
     const dispatch = useDispatch();
     // const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
     // const categories = useSelector((state) => state.categories.categories);
     // const loading = useSelector((state) => state.product.loading);
     useEffect(() => {
-        dispatch(productActions.getAllProducts());
-    }, [dispatch]);
+        dispatch(productActions.getAllProducts(null, page));
+    }, [dispatch, page]);
     useEffect(() => {
         dispatch(categoryActions.getAllCategories());
     }, [dispatch]);
+
+    const handlePageChange = (page) => {
+        setPage(page.selected + 1);
+      };
     return(
         <>
         <div>
@@ -65,7 +74,11 @@ export default function HomePage() {
                 ))}
             </>
         </Row>
-        <Pagination />
+        <Pagination 
+            totalPages={totalPages}
+            handlePageChange={handlePageChange}
+            selectedPage={page - 1}
+        />
     </>
     );
 }
