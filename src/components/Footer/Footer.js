@@ -21,24 +21,24 @@ function Footer() {
                             <a>Small Footer 4</a>
                         </Col>
                         <Col>
-                            <h4>Footer Col 1.2</h4>
-                            <a>Small Footer 1</a>
+                            <h4>Collaboration</h4>
+                            <a>Product Recalls</a>
                             <br></br>
-                            <a>Small Footer 2</a>
+                            <a>Guest Care</a>
                             <br></br>
-                            <a>Small Footer 3</a>
+                            <a>New Vendors</a>
                             <br></br>
-                            <a>Small Footer 4</a>
+                            <a>Buyers</a>
                         </Col>
                         <Col>
-                            <h4>Footer Col 1.3</h4>
-                            <a>Small Footer 1</a>
+                            <h4>Others</h4>
+                            <a>Careers</a>
                             <br></br>
-                            <a>Small Footer 2</a>
+                            <a>Terms of Use</a>
                             <br></br>
-                            <a>Small Footer 3</a>
+                            <a>Privacy Policy</a>
                             <br></br>
-                            <a>Small Footer 4</a>
+                            <a>Q & A</a>
                         </Col>
                         </Row>
                     </Col>
