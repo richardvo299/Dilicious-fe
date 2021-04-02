@@ -1,3 +1,17 @@
 .page-row {
     margin-left: 64px;
 }
+
+.pagination > li {
+    padding: 0 8px;
+    font-size: 20px;
+    background-color: #4e3021;
+    border: 1px solid #4e3021;
+    border-radius: 4px;
+    margin: 0 8px;
+    color: #f0eadd
+}
+
+.homepagehr {
+    width: 88%
+}

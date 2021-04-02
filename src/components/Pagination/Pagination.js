@@ -9,7 +9,8 @@ const Pagination = ({ selectedPage, handlePageChange, totalPages }) => {
     return (
         <Row className="page-row">
             <Col>
-            <span>Page:</span>
+            <Row style={{margin: "0"}}>
+            <strong>
             <ReactPaginate
             previousLabel={"<"}
             nextLabel={">"}
@@ -24,6 +25,8 @@ const Pagination = ({ selectedPage, handlePageChange, totalPages }) => {
             activeClassName={"active"}
             forcePage={selectedPage}
             />
+            </strong>
+            </Row>
             </Col>
         </Row>
         

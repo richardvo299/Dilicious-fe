@@ -17,15 +17,14 @@ export default function HomePage() {
     const [searchTerm, setSearchTerm] = useState("");
     const totalPages = useSelector((state) => state.product.totalPages);
 
-
     const dispatch = useDispatch();
-    // const keywords = useParams().keywords;
+    const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
     // const categories = useSelector((state) => state.categories.categories);
-    // const loading = useSelector((state) => state.product.loading);
+    const loading = useSelector((state) => state.product.loading);
     useEffect(() => {
-        dispatch(productActions.getAllProducts(null, page));
-    }, [dispatch, page]);
+        dispatch(productActions.getAllProducts(keywords, page));
+    }, [dispatch, keywords, page]);
     useEffect(() => {
         dispatch(categoryActions.getAllCategories());
     }, [dispatch]);
@@ -64,6 +63,7 @@ export default function HomePage() {
             <Col md={{ span: 4, offset: 4 }}><SearchBar></SearchBar></Col>
         </Row>
         </div>
+        <hr className="homepagehr"></hr>
         <Row className="cards-wrapper">
             <>
                 {/* {!keywords} */}
