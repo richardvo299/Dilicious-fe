@@ -41,6 +41,7 @@ authActions.logout = () => async (dispatch) => {
   delete api.defaults.headers.common["authorization"];
   localStorage.setItem("accessToken", "");
   dispatch({ type: types.LOGOUT_USER, payload: null });
+  toast.success(`Thank you`);
 };
 
 authActions.register = (name, email, password) => async (dispatch) => {
@@ -52,8 +53,8 @@ authActions.register = (name, email, password) => async (dispatch) => {
       password,
     });
     dispatch({ type: types.REGISTER_SUCCESS, payload: res.data.data });
-    dispatch(routeActions.redirect("/auth"));
     toast.success(`Thank you for your registration, ${name}!`);
+    dispatch(routeActions.redirect("/auth"));
   } catch (error) {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }

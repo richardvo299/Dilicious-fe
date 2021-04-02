@@ -41,7 +41,6 @@ function AuthPage() {
 
   const onLogin = (e) => {
     e.preventDefault();
-    // console.log(user.email, user.password);
     dispatch(authActions.login(user.email, user.password));
   };
 
@@ -200,7 +199,7 @@ function AuthPage() {
                 Cookie Policy. You may receive emails from us and can
                 opt out at any time.
                 </p>
-                <Button className='mx-auto w-50 text-dark font-weight-bold' variant='warning' type='submit'>
+                <Button className='mx-auto w-50 font-weight-bold' variant='warning' type='submit'>
                 Sign Up
                 </Button>
             </Form>
