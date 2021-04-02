@@ -3,13 +3,23 @@ import { Navbar, Form, Nav, Button, NavDropdown, FormControl } from "react-boots
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 import { Fade as Hamburger } from 'hamburger-react';
+import { useSelector, useDispatch } from "react-redux";
 import Cart from "../../components/Cart/Cart";
+import authActions  from "../../redux/actions/auth.actions";
 import SearchBar from '../SearchBar';
 import "./style.css";
 
 
 const PublicNavbar = () => {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    console.log("authenticated?", isAuthenticated);
+
+    const handleLogout = () => {
+        dispatch(authActions.logout());
+    };
+
     return (
         <div>
             <Navbar expand="lg">
@@ -28,10 +38,16 @@ const PublicNavbar = () => {
                     <Nav.Link as={Link} to="/about">About us</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                    <Nav.Link as={Link} to="/checkout">
-                        <Cart></Cart>
-                    </Nav.Link>
-                    <Nav.Link as={Link} to="/auth">Login | Register</Nav.Link>
+                    {isAuthenticated 
+                        ? 
+                        <> 
+                        <Nav.Link as={Link} to="/checkout">
+                            <Cart></Cart>
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/" onClick={handleLogout}>Log out</Nav.Link>
+                        </>
+                        :
+                        <Nav.Link as={Link} to="/auth">Login | Register</Nav.Link>}
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

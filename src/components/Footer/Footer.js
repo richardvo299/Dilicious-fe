@@ -10,17 +10,17 @@ function Footer() {
                 <Row className="footer-row">
                     <Col sm={12} md={9}>
                         <Row>
-                        <Col>
-                            <h4>Footer Col 1.1</h4>
-                            <a>Small Footer 1</a>
+                        <Col style={{textAlign: "left"}}>
+                            <h4>More Info</h4>
+                            <a>View Specials</a>
                             <br></br>
-                            <a>Small Footer 2</a>
+                            <a>Recipes</a>
                             <br></br>
-                            <a>Small Footer 3</a>
+                            <a>Reviews</a>
                             <br></br>
-                            <a>Small Footer 4</a>
+                            <a>News</a>
                         </Col>
-                        <Col>
+                        <Col style={{textAlign: "left"}}>
                             <h4>Collaboration</h4>
                             <a>Product Recalls</a>
                             <br></br>
@@ -30,7 +30,7 @@ function Footer() {
                             <br></br>
                             <a>Buyers</a>
                         </Col>
-                        <Col>
+                        <Col style={{textAlign: "left"}}>
                             <h4>Others</h4>
                             <a>Careers</a>
                             <br></br>
@@ -39,6 +39,9 @@ function Footer() {
                             <a>Privacy Policy</a>
                             <br></br>
                             <a>Q & A</a>
+                        </Col>
+                        <Col style={{textAlign: "left"}}>
+                            <h4>Social Media</h4>
                         </Col>
                         </Row>
                     </Col>

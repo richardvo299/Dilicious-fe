@@ -25,7 +25,7 @@ const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function AuthPage() {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.auth);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const [user, setUser] = useState({
     name: "",
@@ -49,6 +49,8 @@ function AuthPage() {
     setUser({ ...user, [e.target.id]: e.target.value });
     console.log(user.email, user.password);
   };
+
+  if (isAuthenticated) return <Redirect to='/' />;
 
   const onRegister = (e) => {
     e.preventDefault();
