@@ -102,6 +102,7 @@ const Product = ({ product }) => {
                           label={product.options[0].option}
                           name="formHorizontalRadios"
                           id="option1"
+                          checked
                         />
                         <Form.Check
                           type="radio"
@@ -129,6 +130,7 @@ const Product = ({ product }) => {
                           label={product.toppings[0].topping}
                           name="formHorizontalRadios2"
                           id="topping1"
+                          checked
                         />
                         <Form.Check
                           type="radio"

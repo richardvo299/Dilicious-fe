@@ -5,11 +5,7 @@ import "./style.css";
 function Categories({ category }) {
     return (
         <div>
-            <Button className="cat-btn">All</Button>
-            <Button className="cat-btn">Chocolate</Button>
-            <Button className="cat-btn">Matcha</Button>
-            <Button className="cat-btn">Fruits</Button>
-            <Button className="cat-btn">Others</Button>
+            <Button className="cat-btn">{category.name}</Button>
         </div>
     )
 }

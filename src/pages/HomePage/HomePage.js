@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Row, Col, Button, ButtonGroup, Container } from "react-bootstrap";
@@ -16,25 +17,30 @@ export default function HomePage() {
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-    const totalPages = useSelector((state) => state.product.totalPages);
+    const totalPages = useSelector((state) => state.product.pageCount);
+    console.log("total pages", totalPages);
 
     const dispatch = useDispatch();
     const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
-    // const categories = useSelector((state) => state.categories.categories);
+    const categories = useSelector((state) => state.category.categories);
+    console.log(categories);
     const loading = useSelector((state) => state.product.loading);
     useEffect(() => {
         dispatch(productActions.getAllProducts(keywords, page));
-    }, [dispatch, keywords, page]);
-    useEffect(() => {
         dispatch(categoryActions.getAllCategories());
-    }, [dispatch]);
+    }, [dispatch, keywords, page]);
 
     const handlePageChange = (page) => {
         setPage(page.selected + 1);
       };
     return(
         <>
+        <Helmet>
+                <meta charSet='utf-8' />
+                <title>Dilicious - Home</title>
+                <link rel='canonical' href='http://mysite.com/example' />
+        </Helmet>
         <div>
         <HomeCarousel></HomeCarousel>
         </div>
@@ -60,7 +66,13 @@ export default function HomePage() {
         <div>
         
         <Row className="categories-row">
-            <Col><Categories></Categories></Col>
+            <Col>
+            <Row>
+            <Button>All</Button>
+            {categories.map((c, index) => (
+                <Categories category={c}></Categories>))}
+            </Row>
+            </Col>
             <Col md={{ span: 4, offset: 4 }}><SearchBar></SearchBar></Col>
         </Row>
         </div>

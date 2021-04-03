@@ -8,6 +8,7 @@ categoryActions.getAllCategories = () => async (
   dispatch
 ) => {
   try {
+    console.log("you're here");
     dispatch({ type: types.GET_CATEGORIES_REQUEST });
     const { data } = await api.get(`/category`);
     dispatch({
