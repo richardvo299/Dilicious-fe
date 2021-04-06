@@ -15,7 +15,7 @@ import "./style.css";
 
 export default function HomePage() {
     const [page, setPage] = useState(1);
-    const [searchTerm, setSearchTerm] = useState("");
+    // const [searchTerm, setSearchTerm] = useState("");
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const totalPages = useSelector((state) => state.product.pageCount);
     console.log("total pages", totalPages);

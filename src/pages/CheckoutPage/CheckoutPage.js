@@ -106,6 +106,7 @@ function CheckoutPage() {
                 </Card>
                 {isDelivery 
                 ? 
+
                 <Card className='p-3 box-shadow'>
                 <h2>3. Delivery Info</h2>
                 <Form className='d-flex flex-column justify-content-center align-content-center text-align-center'>
@@ -161,6 +162,7 @@ function CheckoutPage() {
                     </Form.Group>
                 </Form>
                 </Card>
+                
                 }
                 </Col>
                 <Col sm={12} md={5}>

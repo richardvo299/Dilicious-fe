@@ -72,8 +72,8 @@ function AdminPage() {
                 <Col md={9}>
                 <Card className='p-3 box-shadow'>
                     <h4>{menuname} management</h4>
-                    {menuname == "Orders" 
-                        ?
+                    {menuname === "Orders" 
+                        ? 
                         <>
                         <Table striped bordered hover>
                         <thead>
@@ -132,7 +132,67 @@ function AdminPage() {
                         </tbody>
                         </Table>
                         </>
-                        : 
+                        : menuname === "Products"
+                            ? 
+                            <>
+                            <h4>Products Management</h4>
+                            <Row className="category-admin-row">
+                                <form>
+                                <input type="text" name="product" value="" placeholder="Product Name" required></input>
+                                <input type="text" placeholder="Product Description"></input>
+                                <input type="number" placeholder="Price"></input>
+                                <input placeholder="Size"></input>
+                                <input placeholder="IMG Link"></input>
+                                <label for="options">Choose options:</label>
+                                <select id="options" name="options">
+                                    <option value="volvo">Default</option>
+                                    <option value="saab">Dairy-free</option>
+                                    <option value="fiat">Gluten-free</option>
+                                    <option value="audi">Less sugar</option>
+                                </select>
+                                <select id="options" name="options">
+                                    <option value="volvo">Default</option>
+                                    <option value="saab">Dairy-free</option>
+                                    <option value="fiat">Gluten-free</option>
+                                    <option value="audi">Less sugar</option>
+                                </select>
+                                <select id="options" name="options">
+                                    <option value="volvo">Default</option>
+                                    <option value="saab">Dairy-free</option>
+                                    <option value="fiat">Gluten-free</option>
+                                    <option value="audi">Less sugar</option>
+                                </select>
+                                <label for="toppings">Choose toppings:</label>
+                                <select id="toppings" name="toppings">
+                                    <option value="volvo">None</option>
+                                    <option value="saab">Berries</option>
+                                    <option value="fiat">Whipped Cream</option>
+                                    <option value="audi">Cocoa Powder</option>
+                                    <option value="audi">White Chips</option>
+                                    <option value="audi">Choco Chips</option>
+                                    <option value="audi">Raisins</option>
+                                    <option value="audi">Choco Syrup</option>
+                                    <option value="audi">Matcha Powder</option>
+                                    <option value="audi">Coffee Syrup</option>
+
+                                </select>
+                                <select id="toppings" name="toppings">
+                                    <option value="volvo">Default</option>
+                                    <option value="saab">Dairy-free</option>
+                                    <option value="fiat">Gluten-free</option>
+                                    <option value="audi">Less sugar</option>
+                                </select>
+                                <select id="toppings" name="toppings">
+                                    <option value="volvo">Default</option>
+                                    <option value="saab">Dairy-free</option>
+                                    <option value="fiat">Gluten-free</option>
+                                    <option value="audi">Less sugar</option>
+                                </select>
+                                <button>Add Product</button>
+                                </form>
+                            </Row>
+                            </>
+                            :
                             <>
                             <Row className="category-admin-row">
                                 <form onSubmit={createCategory}>
