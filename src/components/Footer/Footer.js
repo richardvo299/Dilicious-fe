@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import "./style.css";
 import logo from "../../images/logo.svg";
 
@@ -10,37 +10,37 @@ function Footer() {
                 <Row className="footer-row">
                     <Col sm={12} md={9}>
                         <Row>
-                        <Col style={{textAlign: "left"}}>
+                        <Col className="footer-col">
                             <h4>More Info</h4>
-                            <a>View Specials</a>
+                            <a href="/">View Specials</a>
                             <br></br>
-                            <a>Recipes</a>
+                            <a href="/">Recipes</a>
                             <br></br>
-                            <a>Reviews</a>
+                            <a href="/">Reviews</a>
                             <br></br>
-                            <a>News</a>
+                            <a href="/">News</a>
                         </Col>
-                        <Col style={{textAlign: "left"}}>
+                        <Col className="footer-col">
                             <h4>Collaboration</h4>
-                            <a>Product Recalls</a>
+                            <a href="/">Product Recalls</a>
                             <br></br>
-                            <a>Guest Care</a>
+                            <a href="/">Guest Care</a>
                             <br></br>
-                            <a>New Vendors</a>
+                            <a href="/">New Vendors</a>
                             <br></br>
-                            <a>Buyers</a>
+                            <a href="/">Buyers</a>
                         </Col>
-                        <Col style={{textAlign: "left"}}>
+                        <Col className="footer-col">
                             <h4>Others</h4>
-                            <a>Careers</a>
+                            <a href="/">Careers</a>
                             <br></br>
-                            <a>Terms of Use</a>
+                            <a href="/">Terms of Use</a>
                             <br></br>
-                            <a>Privacy Policy</a>
+                            <a href="/">Privacy Policy</a>
                             <br></br>
-                            <a>Q & A</a>
+                            <a href="/">Q & A</a>
                         </Col>
-                        <Col style={{textAlign: "left"}}>
+                        <Col className="footer-col">
                             <h4>Social Media</h4>
                         </Col>
                         </Row>

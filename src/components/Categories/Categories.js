@@ -1,11 +1,15 @@
 import React from 'react';
-import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import "./style.css";
 
-function Categories({ category }) {
+function Categories({ category, handleCat }) {
+    // const handleCat = (e) => {
+    //     e.preventDefault();
+    //     console.log("this cat is clicked");
+    // }
     return (
         <div>
-            <Button className="cat-btn">{category.name}</Button>
+            <Button className="cat-btn" onClick={handleCat}>{category.name}</Button>
         </div>
     )
 }

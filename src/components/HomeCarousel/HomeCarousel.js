@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import './style.css';
 
 const HomeCarousel = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
     return (
         <div>
             <Carousel fade>

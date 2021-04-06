@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Row, Col, Button, ButtonGroup, Container, Form, Card } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import TimePicker from 'react-bootstrap-time-picker';
+import CurrentOrder from "../../components/CurrentOrder/CurrentOrder";
 
 function CheckoutPage() {
     const [isDelivery, setIsDelivery] = useState(true);
@@ -28,7 +29,7 @@ function CheckoutPage() {
             </Helmet>
             <Container>
             <Row>
-                <Col sm={12} md={8}>
+                <Col sm={12} md={7}>
                 <Card className='p-3 box-shadow'>
                 <h2>1. Info</h2>
                 <Form className='d-flex flex-column justify-content-center align-content-center text-align-center'>
@@ -162,17 +163,8 @@ function CheckoutPage() {
                 </Card>
                 }
                 </Col>
-                <Col sm={12} md={4}>
-                    ORDER LIST HERE
-                    <Card className='p-3 box-shadow'>
-                        <Button
-                        variant='warning'
-                        className='font-weight-bold'
-                        style={{width: "250px", margin: "0 8px"}}
-                        >
-                        Check-out
-                        </Button>
-                    </Card>
+                <Col sm={12} md={5}>
+                    <CurrentOrder></CurrentOrder>
                 </Col>
             </Row>
             </Container>

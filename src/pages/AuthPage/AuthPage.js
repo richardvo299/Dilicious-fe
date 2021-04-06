@@ -73,9 +73,9 @@ function AuthPage() {
             fluid
             className='d-flex flex-column align-items-center justify-content-center'
         >
-            <Row>
-            <Col className='d-flex justify-content-center align-items-center'>
-                <Card style={{ width: "30rem" }} className='p-3 box-shadow'>
+            <Row className='login-row'>
+            <Col className='d-flex justify-content-center align-items-center login-col'>
+                <Card style={{ width: "auto", minWidth: "320px" }} className='p-3 box-shadow'>
                 <Form className='d-flex flex-column justify-content-center align-content-center text-align-center'>
                     <Form.Group controlId='email'>
                     <Form.Control
@@ -109,7 +109,7 @@ function AuthPage() {
                     <Row>
                     <Col>
                         <GoogleLogin
-                        className='py-1'
+                        className='py-1 google-button'
                         clientId={GOOGLE_CLIENT_ID}
                         buttonText='Google'
                         onSuccess={(u) => {
@@ -122,7 +122,7 @@ function AuthPage() {
                     <Col className='text-right'>
                         <FacebookLogin
                         className='py-1'
-                        textButton='Facebook'
+                        textButton='facebook'
                         appId={FB_APP_ID}
                         icon='fa-facebook'
                         fields='name,email,picture'

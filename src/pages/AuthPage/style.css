@@ -32,3 +32,24 @@ p.footer {
 .p-terms {
   font-size: 0.7rem;
 }
+
+.kep-login-facebook {
+  font-size: 1rem !important;
+  padding: 8px !important;
+  text-transform: none !important;
+}
+
+.google-button {
+  font-size: 1rem !important;
+  padding: 0 !important;
+}
+
+.login-col {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.login-row {
+  margin-right: 0px;
+  margin-left: 0px;
+}

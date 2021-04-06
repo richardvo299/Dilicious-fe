@@ -1,6 +1,6 @@
 import React from 'react';
 import "./style.css";
-import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 
 function AboutUsPage() {
@@ -16,7 +16,7 @@ function AboutUsPage() {
             <Container>
             <Row>
                 <Col sm={12} md={6}>
-                    <img src="https://i.imgur.com/iWV9aot.jpg" className="aboutus-info-image"></img>
+                    <img src="https://i.imgur.com/iWV9aot.jpg" className="aboutus-info-image" alt="img"></img>
                 </Col>
                 <Col sm={12} md={6}>
                     <p className="aboutus-page-content">

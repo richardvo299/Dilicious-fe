@@ -18,3 +18,11 @@
 .footer-row {
     margin: 0;
 }
+
+.footer-col {
+    text-align: left;
+}
+
+.footer-col > a {
+    color: #f0eadd;
+}

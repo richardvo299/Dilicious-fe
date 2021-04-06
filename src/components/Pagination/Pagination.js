@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactPaginate from "react-paginate";
-import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import productActions from "../../redux/actions/product.actions";
+import { Col, Row } from "react-bootstrap";
+// import { useSelector, useDispatch } from "react-redux";
+// import productActions from "../../redux/actions/product.actions";
 import "./style.css"
 
 const Pagination = ({ selectedPage, handlePageChange, totalPages }) => {

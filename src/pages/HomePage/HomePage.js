@@ -23,8 +23,8 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
+    console.log(products);
     const categories = useSelector((state) => state.category.categories);
-    console.log(categories);
     const loading = useSelector((state) => state.product.loading);
     useEffect(() => {
         dispatch(productActions.getAllProducts(keywords, page));
@@ -34,6 +34,11 @@ export default function HomePage() {
     const handlePageChange = (page) => {
         setPage(page.selected + 1);
       };
+
+    const handleCat = (e) => {
+        e.preventDefault();
+        console.log("this cat is clicked");
+    }  
     return(
         <>
         <Helmet>
@@ -70,7 +75,7 @@ export default function HomePage() {
             <Row>
             <Button>All</Button>
             {categories.map((c, index) => (
-                <Categories category={c}></Categories>))}
+                <Categories category={c} handleCat={handleCat} key={index}></Categories>))}
             </Row>
             </Col>
             <Col md={{ span: 4, offset: 4 }}><SearchBar></SearchBar></Col>

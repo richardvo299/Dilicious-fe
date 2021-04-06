@@ -25,6 +25,18 @@ const categoryReducer = (state = initialState, action) => {
     case types.GET_CATEGORIES_FAIL:
     case types.GET_SINGLE_CATEGORY_FAIL:
       return { ...state, loading: false, error: payload };
+    case types.CREATE_CATEGORIES_REQUEST:
+      return { ...state, loading: true };
+    case types.CREATE_CATEGORIES_SUCCESS:
+      return { ...state, loading: false };
+    case types.CREATE_CATEGORIES_FAIL:
+      return { ...state, loading: false };
+    case types.DELETE_CATEGORY_REQUEST:
+      return { ...state, loading: true };
+    case types.DELETE_CATEGORY_SUCCESS:
+      return { ...state, loading: false, selectedCategory: {} };
+    case types.DELETE_CATEGORY_FAIL:
+      return { ...state, loading: false };
 
     default:
       return state;

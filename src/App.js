@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
-    if (accessToken && accessToken !== "undefined") {
+    if (accessToken) {
       dispatch(authActions.getCurrentUser(accessToken));
     } else {
       dispatch(authActions.logout());
