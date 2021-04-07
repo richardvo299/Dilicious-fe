@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+// import { useDispatch } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Routes from "./routes";
@@ -16,7 +16,7 @@ library.add(
 );
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // useEffect(() => {
   //   const accessToken = localStorage.getItem("accessToken");

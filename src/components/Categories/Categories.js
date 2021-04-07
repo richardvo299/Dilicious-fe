@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./style.css";
 
 function Categories({ category, handleCat }) {

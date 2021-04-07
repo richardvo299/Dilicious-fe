@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { Navbar, Form, Nav, Button, FormControl } from "react-bootstrap";
+import { Form, FormControl } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
 

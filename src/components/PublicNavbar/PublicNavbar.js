@@ -6,7 +6,7 @@ import { Fade as Hamburger } from 'hamburger-react';
 import { useSelector, useDispatch } from "react-redux";
 import Cart from "../../components/Cart/Cart";
 import authActions  from "../../redux/actions/auth.actions";
-import SearchBar from '../SearchBar';
+// import SearchBar from '../SearchBar';
 import "./style.css";
 
 

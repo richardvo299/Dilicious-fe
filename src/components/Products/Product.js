@@ -31,6 +31,21 @@ const Quantity = () => {
 
 const Product = ({ product }) => {
   // console.log("products", product);
+  const [quantity, setQuantity] = useState(1);
+  const increase = (e) => {
+    console.log("increase in clicked");
+    e.preventDefault();
+    const newquantity = quantity + 1;
+    setQuantity(newquantity);
+  }
+  const decrease = (e) => {
+    console.log("decrease in clicked");
+    e.preventDefault();
+    if (quantity !== 1) {
+      const newquantity = quantity - 1;
+      setQuantity(newquantity);
+    } 
+  }
   const [show, setShow] = useState(false);
   const [tempprice, setTempprice] = useState(0);
 
@@ -77,7 +92,7 @@ const Product = ({ product }) => {
             > */}
               <Row>
                 <Col xs={12} md={6} className="modal-image-wrapper">
-                  <img src={product.images[0].imageUrl} className="modal-image"></img>
+                  <img src={product.images[0].imageUrl} alt="" className="modal-image"></img>
                 </Col>
                 <Col xs={12} md={6}>
                   <Form>
@@ -85,6 +100,8 @@ const Product = ({ product }) => {
                       <h2>
                       {product.name}
                       </h2>
+                      Price: <b><CurrencyFormat value={product.price} displayType={'text'} thousandSeparator={true}/></b> VND
+                      <br></br>
                       Size: {product.size}
                       <br></br>
                       {product.description}
@@ -154,14 +171,11 @@ const Product = ({ product }) => {
                       <Form.Label as="legend">
                         Quantity
                       </Form.Label>
-                        <Quantity></Quantity>
-                    </Form.Group>
-                    </fieldset>
-                  </Form.Row>
-                  <Form.Row>
-                    <fieldset>
-                    <Form.Group as={Col} controlId='temp-price'>
-                        <b>Total: <CurrencyFormat value={product.price} displayType={'text'} thousandSeparator={true}/></b> vnd
+                      <div>
+                      <Button onClick={decrease} className="quantity-button">-</Button>
+                      {quantity}
+                      <Button onClick={increase} className="quantity-button">+</Button>
+                      </div>
                     </Form.Group>
                     </fieldset>
                   </Form.Row>

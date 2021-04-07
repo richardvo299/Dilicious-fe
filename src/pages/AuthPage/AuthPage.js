@@ -52,7 +52,7 @@ function AuthPage() {
   };
 
   if (isAuthenticated) {
-    if (role=="admin") {
+    if (role==="admin") {
         return <Redirect to='/admin'/>;
     }
     else {return <Redirect to='/' />};

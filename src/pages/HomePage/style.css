@@ -4,10 +4,37 @@
 }
 
 .cards-wrapper{
-    margin: 0 64px;
+    margin: 0 10%;
 }
 
 .categories-row {
     margin-left: 64px;
     margin-right: auto;
+}
+
+.cat-but {
+    color: #4E3021;
+    background-color: #f0eadd;
+    border: none;
+}
+
+.cat-but:hover {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border: none;
+    box-shadow: none;
+}
+
+.cat-but:focus {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border: none;
+    box-shadow: none;
+}
+
+.cat-but:active {
+    color: #f0eadd;
+    background-color: #4E3021;
+    border: none;
+    box-shadow: none;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Row, Col, Button, ButtonGroup, Container } from "react-bootstrap";
+import { Row, Col, Button, Container } from "react-bootstrap";
 import productActions from "../../redux/actions/product.actions";
 import categoryActions from "../../redux/actions/category.actions";
 import Product from "../../components/Products/Product";
@@ -16,6 +16,7 @@ import "./style.css";
 export default function HomePage() {
     const [page, setPage] = useState(1);
     // const [searchTerm, setSearchTerm] = useState("");
+    const [cat, setCat] = useState(null);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const totalPages = useSelector((state) => state.product.pageCount);
     console.log("total pages", totalPages);
@@ -26,10 +27,11 @@ export default function HomePage() {
     console.log(products);
     const categories = useSelector((state) => state.category.categories);
     const loading = useSelector((state) => state.product.loading);
+
     useEffect(() => {
-        dispatch(productActions.getAllProducts(keywords, page));
+        dispatch(productActions.getAllProducts(keywords, page, cat));
         dispatch(categoryActions.getAllCategories());
-    }, [dispatch, keywords, page]);
+    }, [dispatch, keywords, page, cat]);
 
     const handlePageChange = (page) => {
         setPage(page.selected + 1);
@@ -38,7 +40,15 @@ export default function HomePage() {
     const handleCat = (e) => {
         e.preventDefault();
         console.log("this cat is clicked");
-    }  
+    }
+
+    const onClickAll = (e) => {
+        e.preventDefault();
+        setCat(null);
+        console.log(cat);
+    }
+
+    console.log("current cat", cat);
     return(
         <>
         <Helmet>
@@ -53,10 +63,10 @@ export default function HomePage() {
         <Container>
             <Row>
                 <Col sm={12} md={6}>
-                    <a href="/"><img src="https://i.imgur.com/BORmKTB.png" className="aboutus-info-image"></img></a>   
+                    <a href="/"><img src="https://i.imgur.com/BORmKTB.png" alt="" className="aboutus-info-image"></img></a>   
                 </Col>
                 <Col sm={12} md={6}>
-                    <a href="/delivery"><img src="https://i.imgur.com/R2kvHKJ.png" className="aboutus-info-image"></img></a>
+                    <a href="/delivery"><img src="https://i.imgur.com/R2kvHKJ.png" alt="" className="aboutus-info-image"></img></a>
                 </Col>
             </Row>
         </Container>
@@ -65,20 +75,26 @@ export default function HomePage() {
             <h2 className="ordernow">ORDER NOW</h2>
             <img 
                 src={arrowdown} 
-                style={{height: "20px", display: "block", marginLeft: "auto", marginRight: "auto"}}>
+                style={{height: "20px", display: "block", marginLeft: "auto", marginRight: "auto"}}
+                alt="">
             </img>
         </div>
         <div>
         
         <Row className="categories-row">
-            <Col>
+            <Col md={6}>
             <Row>
-            <Button>All</Button>
-            {categories.map((c, index) => (
-                <Categories category={c} handleCat={handleCat} key={index}></Categories>))}
+            <Button className="cat-but" onClick={onClickAll}>All</Button>
+            <Button className="cat-but" onClick={(e) => setCat("chocolate")}>Chocolate</Button>
+            <Button className="cat-but" onClick={(e) => setCat("matcha")}>Matcha</Button>
+            <Button className="cat-but" onClick={(e) => setCat("cheese")}>Cheese</Button>
+            <Button className="cat-but" onClick={(e) => setCat("fruits")}>Fruits</Button>
+            <Button className="cat-but" onClick={(e) => setCat("others")}>Others</Button>
+            {/* {categories.map((c, index) => (
+                <Categories category={c} handleCat={handleCat} key={index}></Categories>))} */}
             </Row>
             </Col>
-            <Col md={{ span: 4, offset: 4 }}><SearchBar></SearchBar></Col>
+            <Col md={6}><SearchBar></SearchBar></Col>
         </Row>
         </div>
         <hr className="homepagehr"></hr>

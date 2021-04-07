@@ -39,7 +39,7 @@ function DeliveryPage() {
                     <a href="/" style={{color: "#4E3021"}}><b>START ORDER HERE</b></a>
                 </Col>
                 <Col sm={12} md={6}>
-                    <img src="https://i.imgur.com/psZmFB0.jpg?1" className="aboutus-info-image"></img>
+                    <img src="https://i.imgur.com/psZmFB0.jpg?1" className="aboutus-info-image" alt=""></img>
                 </Col>
             </Row>
             </Container>
