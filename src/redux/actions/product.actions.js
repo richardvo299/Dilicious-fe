@@ -22,7 +22,7 @@ productActions.getAllProducts = (keywords = "", page = 1, cat) => async (
     console.log("products data", data.data)
   } catch (error) {
     console.error(error);
-    dispatch({ type: types.GET_PRODUCTS_FAIL, payload: error.errors.message });
+    dispatch({ type: types.GET_PRODUCTS_FAIL, payload: error.message });
   }
 };
 
@@ -38,7 +38,25 @@ productActions.getSingleProduct = (id) => async (dispatch) => {
     console.error(error);
     dispatch({
       type: types.GET_SINGLE_PRODUCT_FAIL,
-      payload: error.errors.message,
+      payload: error.message,
+    });
+  }
+};
+
+productActions.addToCart = (cart) => async (dispatch) => {
+  try {
+    console.log(cart);
+    dispatch({ type: types.ADD_TO_CART_REQUEST });
+    const { data } = await api.put(`/user/cart`, cart);
+    dispatch({
+      type: types.ADD_TO_CART_SUCCESS,
+      payload: data.data.product,
+    });
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: types.ADD_TO_CART_FAIL,
+      payload: error.message,
     });
   }
 };

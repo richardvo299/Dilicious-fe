@@ -17,21 +17,23 @@ authActions.login = (email, password) => async (dispatch) => {
     localStorage.setItem("accessToken", res.data.data.accessToken);
   } catch (error) {
     console.error(error);
-    dispatch({ type: types.LOGIN_USER_FAIL, payload: error.errors.message });
-    toast.error(error.errors.message);
+    dispatch({ type: types.LOGIN_USER_FAIL, payload: error.message });
+    toast.error(error.message);
   }
 };
 
-authActions.getCurrentUser = (accessToken) => async (dispatch) => {
+authActions.getCurrentUser = () => async (dispatch) => {
   dispatch({ type: types.GET_CURRENT_USER_REQUEST, payload: null });
-  if (accessToken) {
-    const bearerToken = "Bearer " + accessToken;
-    api.defaults.headers.common["authorization"] = bearerToken;
-  }
+  // if () {
+  //   const bearerToken = "Bearer ";
+  //   api.defaults.headers.common["authorization"] = bearerToken;
+  // }
   try {
-    const res = await api.get("/users/me");
-    dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data });
+    const res = await api.get("/user/me");
+    console.log("res", res);
+    dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data.data });
   } catch (error) {
+    console.log(error);
     dispatch({ type: types.GET_CURRENT_USER_FAILURE, payload: error });
   }
 };

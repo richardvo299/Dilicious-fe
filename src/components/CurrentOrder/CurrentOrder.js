@@ -1,48 +1,39 @@
 import React from 'react';
 import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "./style.css";
 import CurrencyFormat from 'react-currency-format';
 
 function CurrentOrder() {
+    const user = useSelector(state => state.auth.user)
     return (
         <div>
+
             <Card className='p-3 box-shadow'>
                 <h2>Order</h2>
                 <hr></hr>
-                <Row>
-                <Col>
-                <img src="https://i.imgur.com/kcih1Da.jpg" alt="orderphoto" className="order-photo"></img>
-                </Col>
-                <Col className="order-item-details">
-                <h4><strong>Tiramisu Cake</strong></h4>
-                <h5>Gluten-free</h5>
-                <h5>Cocoa powder</h5>
-                </Col>
-                <Col className="order-item-details">
-                <h5>Quantity</h5>
-                <h5>4</h5>
-                <h5>Price</h5>
-                <h5>200.000VND</h5>
-                </Col>
-                </Row>
+                {!user||user===undefined? <h1>Loading</h1> : user.cart?.map((u, index) => {
+                    return <Row key={index}>
+                    <Col>
+                    <img src={u.images?u.images:"https://i.imgur.com/kcih1Da.jpg"} alt="orderphoto" className="order-photo"></img>
+                    </Col>
+                    <Col className="order-item-details">
+                    <h4><strong>{u.name}</strong></h4>
+                    <h5>{u.options}</h5>
+                    <h5>{u.toppings}</h5>
+                    </Col>
+                    <Col className="order-item-details">
+                    <h5>Quantity</h5>
+                    <h5>{u.quantity}</h5>
+                    <h5>Price</h5>
+                    <h5>{u.price}</h5>
+                    </Col>
+                    </Row>
+                }
+                )}
                 <hr></hr>
-                <Row>
-                <Col>
-                <img src="https://i.imgur.com/S8VfhYV.jpg" alt="orderphoto" className="order-photo"></img>
-                </Col>
-                <Col className="order-item-details">
-                <h4><strong>Matcha Cheesecake</strong></h4>
-                <h5>Default</h5>
-                <h5>Matcha powder</h5>
-                </Col>
-                <Col className="order-item-details">
-                <h5>Quantity</h5>
-                <h5>4</h5>
-                <h5>Price</h5>
-                <h5>150.000VND</h5>
-                </Col>
-                </Row>
+                
                 <hr></hr>
                 <h5 style={{textAlign: "right"}}>Subtotal</h5>
                 <h5 style={{textAlign: "right"}}>1,400,000 VND</h5>

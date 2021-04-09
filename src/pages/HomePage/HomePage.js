@@ -9,6 +9,7 @@ import Product from "../../components/Products/Product";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Categories from "../../components/Categories/Categories";
 import HomeCarousel from "../../components/HomeCarousel/HomeCarousel";
+import Testimonials from "../../components/Testimonials/Testimonials";
 import Pagination from "../../components/Pagination/Pagination";
 import arrowdown from "../../images/arrowdown.svg";
 import "./style.css";
@@ -35,12 +36,12 @@ export default function HomePage() {
 
     const handlePageChange = (page) => {
         setPage(page.selected + 1);
-      };
+    };
 
-    const handleCat = (e) => {
-        e.preventDefault();
-        console.log("this cat is clicked");
-    }
+    // const handleCat = (e) => {
+    //     e.preventDefault();
+    //     console.log("this cat is clicked");
+    // }
 
     const onClickAll = (e) => {
         e.preventDefault();
@@ -113,6 +114,7 @@ export default function HomePage() {
             handlePageChange={handlePageChange}
             selectedPage={page - 1}
         />
+        <Testimonials />
     </>
     );
 }

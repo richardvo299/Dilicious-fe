@@ -18,7 +18,7 @@ categoryActions.getAllCategories = () => async (
     console.log("categories data", data.data);
   } catch (error) {
     console.error(error);
-    dispatch({ type: types.GET_CATEGORIES_FAIL, payload: error.errors.message });
+    dispatch({ type: types.GET_CATEGORIES_FAIL, payload: error.message });
   }
 };
 

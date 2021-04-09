@@ -6,12 +6,14 @@ const initialState = {
   totalPage: 1,
   deletedProducts: [],
   selectedProduct: { images: [{}] },
+  cart: [],
 };
 const productReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.GET_PRODUCTS_REQUEST:
     case types.GET_SINGLE_PRODUCT_REQUEST:
+    case types.ADD_TO_CART_REQUEST:
     // case types.EDIT_PRODUCT_REQUEST:
     // case types.DELETE_PRODUCT_REQUEST:
     // case types.GET_DELETED_PRODUCTS_REQUEST:
@@ -28,6 +30,8 @@ const productReducer = (state = initialState, action) => {
     //   return { ...state, deletedProducts: payload, loading: false };
     case types.GET_SINGLE_PRODUCT_SUCCESS:
       return { ...state, selectedProduct: payload.product, loading: false };
+    case types.ADD_TO_CART_SUCCESS:
+      return { ...state, cart: payload.cart, loading: false };
     // case types.DELETE_PRODUCT_SUCCESS:
     //   return {
     //     ...state,
@@ -46,6 +50,7 @@ const productReducer = (state = initialState, action) => {
 
     case types.GET_PRODUCTS_FAIL:
     case types.GET_SINGLE_PRODUCT_FAIL:
+    case types.ADD_TO_CART_FAIL:
     // case types.DELETE_PRODUCT_FAIL:
     // case types.GET_DELETED_PRODUCTS_FAIL:
     // case types.EDIT_PRODUCT_FAIL:

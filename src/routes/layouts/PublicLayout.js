@@ -29,8 +29,8 @@ const PublicLayout = () => {
           <Route exact path="/checkout" component={CheckoutPage} />
           <Route exact path="/delivery" component={DeliveryPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
-          <Route path="/search/:keywords" component={HomePage} />;
-          <Route exact path="/admin" component={AdminPage} />
+          <Route path="/search/:keywords" component={HomePage} />
+          <PrivateRoute exact path="/admin" component={AdminPage} />
           <PrivateRoute path="/:id" exact component={ProfilePage} />
           <Route component={NotFoundPage} />
         </Switch>

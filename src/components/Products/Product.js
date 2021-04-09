@@ -3,9 +3,12 @@ import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-boo
 import { Link } from "react-router-dom";
 import "./style.css";
 import CurrencyFormat from 'react-currency-format';
+import { useDispatch } from "react-redux";
+import productActions from "../../redux/actions/product.actions";
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(1);
+  
   const increase = (e) => {
     console.log("increase in clicked");
     e.preventDefault();
@@ -32,19 +35,32 @@ const Quantity = () => {
 const Product = ({ product }) => {
   // console.log("products", product);
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  
+  const [cart, setCart] = useState({
+    name: product?.name,
+    price: product?.price,
+    images: product?.images[0].imageUrl,
+    options: "default",
+    toppings: "none",
+    quantity: 0,
+  });
   const increase = (e) => {
     console.log("increase in clicked");
     e.preventDefault();
     const newquantity = quantity + 1;
     setQuantity(newquantity);
+    setCart({...cart, quantity: newquantity});
   }
   const decrease = (e) => {
     console.log("decrease in clicked");
     e.preventDefault();
+    let newquantity;
     if (quantity !== 1) {
-      const newquantity = quantity - 1;
+      newquantity = quantity - 1;
       setQuantity(newquantity);
-    } 
+    }
+    setCart({...cart, quantity: newquantity});
   }
   const [show, setShow] = useState(false);
   const [tempprice, setTempprice] = useState(0);
@@ -53,6 +69,19 @@ const Product = ({ product }) => {
     e.preventDefault();
     setShow(!show);
   };
+
+  const onChangeCart = (e) => {
+    setCart({...cart, [e.target.name]: e.target.value});
+    console.log("value", e.target.value);
+    console.log("name", e.target.name);
+
+  }
+
+  const onSubmitCart = (e) => {
+    e.preventDefault();
+    console.log("cart", cart)
+    dispatch(productActions.addToCart(cart));
+  }
 
   return (
     <div>
@@ -95,7 +124,7 @@ const Product = ({ product }) => {
                   <img src={product.images[0].imageUrl} alt="" className="modal-image"></img>
                 </Col>
                 <Col xs={12} md={6}>
-                  <Form>
+                  <Form onSubmit={onSubmitCart}>
                     <Form.Group controlId='productinfo'>
                       <h2>
                       {product.name}
@@ -106,10 +135,9 @@ const Product = ({ product }) => {
                       <br></br>
                       {product.description}
                     </Form.Group>
-                  </Form>
                   <Form.Row>
                     <fieldset>
-                    <Form.Group as={Col} controlId='options'>
+                    <Form.Group as={Col} controlId='options' onChange={onChangeCart} name="options">
                       <Form.Label as="legend">
                         Options
                       </Form.Label>
@@ -117,27 +145,29 @@ const Product = ({ product }) => {
                         <Form.Check
                           type="radio"
                           label={product.options[0].option}
-                          name="formHorizontalRadios"
+                          name="options"
                           id="option1"
-                          checked
+                          value={product.options[0].option}
                         />
                         <Form.Check
                           type="radio"
                           label={product.options[1].option}
-                          name="formHorizontalRadios"
+                          name="options"
                           id="option2"
+                          value={product.options[1].option}
                         />
                         <Form.Check
                           type="radio"
                           label={product.options[2].option}
-                          name="formHorizontalRadios"
+                          name="options"
                           id="option3"
+                          value={product.options[2].option}
                         />
                       </Col>
                     </Form.Group>
                     </fieldset>
                     <fieldset>
-                    <Form.Group as={Col} controlId='image'>
+                    <Form.Group as={Col} controlId='toppings' onChange={onChangeCart} name="toppings">
                       <Form.Label as="legend">
                         Toppings
                       </Form.Label>
@@ -145,21 +175,23 @@ const Product = ({ product }) => {
                         <Form.Check
                           type="radio"
                           label={product.toppings[0].topping}
-                          name="formHorizontalRadios2"
+                          name="toppings"
                           id="topping1"
-                          checked
+                          value={product.toppings[0].topping}
                         />
                         <Form.Check
                           type="radio"
                           label={product.toppings[1].topping}
-                          name="formHorizontalRadios2"
+                          name="toppings"
                           id="topping2"
+                          value={product.toppings[1].topping}
                         />
                         <Form.Check
                           type="radio"
                           label={product.toppings[2].topping}
-                          name="formHorizontalRadios2"
+                          name="toppings"
                           id="topping3"
+                          value={product.toppings[2].topping}
                         />
                       </Col>
                     </Form.Group>
@@ -167,7 +199,7 @@ const Product = ({ product }) => {
                   </Form.Row>
                   <Form.Row>
                     <fieldset>
-                    <Form.Group as={Col} controlId='quantity'>
+                    <Form.Group as={Col} controlId='quantity' onChange={onChangeCart} name="quantity">
                       <Form.Label as="legend">
                         Quantity
                       </Form.Label>
@@ -185,6 +217,7 @@ const Product = ({ product }) => {
                   <Button className='font-weight-bold cancel-button' variant='warning' onClick={onToggleModal}>
                     Back to Page
                   </Button>
+                  </Form>
                 </Col>
               </Row>
             </Modal.Body>

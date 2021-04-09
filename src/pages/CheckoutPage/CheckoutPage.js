@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
 import { Row, Col, Button, ButtonGroup, Container, Form, Card } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import TimePicker from 'react-bootstrap-time-picker';
 import CurrentOrder from "../../components/CurrentOrder/CurrentOrder";
+import authActions  from "../../redux/actions/auth.actions";
 
 function CheckoutPage() {
     const [isDelivery, setIsDelivery] = useState(true);
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.auth.user)
+    // const accessToken = useSelector(state => state.auth.accessToken)
+
+    useEffect(() => {
+        dispatch(authActions.getCurrentUser());
+    }, [dispatch]);
 
     const setDelivery = (e) => {
         console.log("Delivery is clicked");
@@ -166,7 +175,7 @@ function CheckoutPage() {
                 }
                 </Col>
                 <Col sm={12} md={5}>
-                    <CurrentOrder></CurrentOrder>
+                    <CurrentOrder user={user}/>
                 </Col>
             </Row>
             </Container>
