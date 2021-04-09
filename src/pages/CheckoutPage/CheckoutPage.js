@@ -10,7 +10,20 @@ import authActions  from "../../redux/actions/auth.actions";
 function CheckoutPage() {
     const [isDelivery, setIsDelivery] = useState(true);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.auth.user)
+    const user = useSelector(state => state.auth.user.checkout)
+    const [orderinfo, setOrderinfo] = useState({
+        recipientName: "",
+        phone: "",
+        email: "",
+        orderType: "delivery",
+        time: "",
+        date: "2021-02-03T13:00:00Z",
+    })
+    const onChangeOrderInfo = (e) => {
+        setOrderinfo({...orderinfo, [e.target.name]: e.target.value});
+        console.log("value", e.target.value);
+        console.log("name", e.target.name);
+      }
     // const accessToken = useSelector(state => state.auth.accessToken)
 
     useEffect(() => {
@@ -21,13 +34,17 @@ function CheckoutPage() {
         console.log("Delivery is clicked");
         e.preventDefault();
         setIsDelivery(true);
+        setOrderinfo({...orderinfo, orderType: "delivery"})
     }
 
     const setPickup = (e) => {
         console.log("Pickup is clicked");
         e.preventDefault();
         setIsDelivery(false);
+        setOrderinfo({...orderinfo, orderType: "pickup"})
     }
+
+    console.log("order info", orderinfo)
     return (
         <div>
             <h1 style={{textAlign: "center", color: "#4E3021", marginTop: "16px"}}>Check Out Page</h1>
@@ -48,8 +65,10 @@ function CheckoutPage() {
                     </Form.Label>
                     <Form.Control
                         type='string'
-                        // onChange={onChange}
                         placeholder='Name'
+                        onChange={onChangeOrderInfo}
+                        name='recipientName'
+                        required
                     />
                     </Form.Group>
                     <Form.Group controlId='phone'>
@@ -58,8 +77,10 @@ function CheckoutPage() {
                     </Form.Label>
                     <Form.Control
                         type='string'
-                        // onChange={onChange}
                         placeholder='Phone Number'
+                        onChange={onChangeOrderInfo}
+                        name='phone'
+                        required
                     />
                     </Form.Group>
                     <Form.Group controlId='email'>
@@ -68,28 +89,12 @@ function CheckoutPage() {
                     </Form.Label>
                     <Form.Control
                         type='email'
-                        // onChange={onChange}
                         placeholder='Email'
+                        onChange={onChangeOrderInfo}
+                        name='email'
+                        required
                     />
                     </Form.Group>
-                    {/* <Form.Group controlId='address'>
-                    <Form.Label>
-                        Delivery Address
-                    </Form.Label>
-                    <Form.Control
-                        type='string'
-                        // onChange={onChange}
-                        placeholder='Address'
-                    />
-                    </Form.Group> */}
-                    {/* <Button
-                    type='submit'
-                    variant='warning'
-                    // onClick={onToggleModal}
-                    className='mx-auto w-50 font-weight-bold'
-                    >
-                    Next Step
-                    </Button> */}
                 </Form>
                 </Card>
                 <Card className='p-3 box-shadow'>
@@ -123,13 +128,13 @@ function CheckoutPage() {
                     <Form.Label>
                         Delivery Time
                     </Form.Label>
-                    <TimePicker start="9:00" end="18:00" step={30} />
+                    <Form.Control type="time" name="time" onChange={onChangeOrderInfo} />
                     </Form.Group>
                     <Form.Group controlId='delivery-date'>
                     <Form.Label>
                         Delivery Date
                     </Form.Label>
-                    <Form.Control type="date" name="dob" placeholder="Date of Birth" />
+                    <Form.Control type="date" name="date" placeholder="Date of delivery" onChange={onChangeOrderInfo} />
                     </Form.Group>
                     <Form.Group controlId='address'>
                     <Form.Label>
@@ -175,7 +180,7 @@ function CheckoutPage() {
                 }
                 </Col>
                 <Col sm={12} md={5}>
-                    <CurrentOrder user={user}/>
+                    <CurrentOrder orderinfo={orderinfo}/>
                 </Col>
             </Row>
             </Container>

@@ -7,7 +7,7 @@ function Testimonials() {
         <div className="testimonials-clean">
             <div className="container">
                 <div className="intro">
-                    <h2 className="text-center">How do our cake-lovers feel? </h2>
+                    <h2 className="text-center"><i>How do our cake-lovers feel?</i></h2>
                 </div>
                 <div className="row people">
                     <div className="col-md-6 col-lg-4 item">
@@ -16,7 +16,7 @@ function Testimonials() {
                         </div>
                         <div className="author"><img className="rounded-circle" src="https://i.imgur.com/ekq8VD4.jpg"/>
                             <h5 className="name">Adele</h5>
-                            <p className="title">Grammy-s winner</p>
+                            <p className="title"><i>Grammy-s winner</i></p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-4 item">
@@ -25,7 +25,7 @@ function Testimonials() {
                         </div>
                         <div className="author"><img className="rounded-circle" src="https://i.imgur.com/GXlWBa0.jpg"/>
                             <h5 className="name">Michelle Obama</h5>
-                            <p className="title">Just an amazing woman</p>
+                            <p className="title"><i>Just an amazing woman</i></p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-4 item">
@@ -34,7 +34,7 @@ function Testimonials() {
                         </div>
                         <div className="author"><img className="rounded-circle" src="https://i.imgur.com/Wnq4LgY.jpg"/>
                             <h5 className="name">Rupaul</h5>
-                            <p className="title">TV Host</p>
+                            <p className="title"><i>TV Host</i></p>
                         </div>
                     </div>
                 </div>

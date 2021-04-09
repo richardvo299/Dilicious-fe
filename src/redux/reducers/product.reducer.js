@@ -14,6 +14,8 @@ const productReducer = (state = initialState, action) => {
     case types.GET_PRODUCTS_REQUEST:
     case types.GET_SINGLE_PRODUCT_REQUEST:
     case types.ADD_TO_CART_REQUEST:
+    case types.REMOVE_FROM_CART_REQUEST:
+    case types.CREATE_ORDER_REQUEST:
     // case types.EDIT_PRODUCT_REQUEST:
     // case types.DELETE_PRODUCT_REQUEST:
     // case types.GET_DELETED_PRODUCTS_REQUEST:
@@ -31,7 +33,10 @@ const productReducer = (state = initialState, action) => {
     case types.GET_SINGLE_PRODUCT_SUCCESS:
       return { ...state, selectedProduct: payload.product, loading: false };
     case types.ADD_TO_CART_SUCCESS:
+    case types.REMOVE_FROM_CART_SUCCESS:
       return { ...state, cart: payload.cart, loading: false };
+    case types.CREATE_ORDER_REQUEST:
+      return {}
     // case types.DELETE_PRODUCT_SUCCESS:
     //   return {
     //     ...state,
@@ -51,6 +56,8 @@ const productReducer = (state = initialState, action) => {
     case types.GET_PRODUCTS_FAIL:
     case types.GET_SINGLE_PRODUCT_FAIL:
     case types.ADD_TO_CART_FAIL:
+    case types.REMOVE_FROM_CART_FAIL:
+    case types.CREATE_ORDER_FAIL:
     // case types.DELETE_PRODUCT_FAIL:
     // case types.GET_DELETED_PRODUCTS_FAIL:
     // case types.EDIT_PRODUCT_FAIL:

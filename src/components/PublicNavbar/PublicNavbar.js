@@ -33,7 +33,6 @@ const PublicNavbar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
-                    <Nav.Link href="#home">Products</Nav.Link>
                     <Nav.Link as={Link} to="/delivery">Delivery</Nav.Link>
                     <Nav.Link as={Link} to="/about">About us</Nav.Link>
                 </Nav>

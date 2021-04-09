@@ -61,4 +61,41 @@ productActions.addToCart = (cart) => async (dispatch) => {
   }
 };
 
+productActions.removeFromCart = (id) => async (dispatch) => {
+  try {
+    console.log(id);
+    dispatch({ type: types.REMOVE_FROM_CART_REQUEST });
+    const { data } = await api.delete(`/user/cart/delete`, id);
+    dispatch({
+      type: types.REMOVE_FROM_CART_SUCCESS,
+      payload: data.data.product,
+    });
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: types.REMOVE_FROM_CART_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+productActions.createOrder = ( products, checkout, deliveryFee, status, total ) => async (dispatch) => {
+  try {
+    console.log("list of stuffs", products, checkout, deliveryFee, status, total);
+    dispatch({ type: types.ADD_TO_CART_REQUEST });
+    const { data } = await api.post(`/order`, {products, checkout: checkout.orderinfo, deliveryFee, status, total});
+    dispatch({
+      type: types.ADD_TO_CART_SUCCESS,
+      payload: data.data.product,
+    });
+    document.location.href = "/";
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: types.ADD_TO_CART_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
 export default productActions;

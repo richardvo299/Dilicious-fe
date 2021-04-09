@@ -3,12 +3,13 @@ import { Col, Row, Card, Form, Button, Modal, Container, Image } from "react-boo
 import { Link } from "react-router-dom";
 import "./style.css";
 import CurrencyFormat from 'react-currency-format';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product.actions";
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(1);
-  
+
+
   const increase = (e) => {
     console.log("increase in clicked");
     e.preventDefault();
@@ -35,6 +36,7 @@ const Quantity = () => {
 const Product = ({ product }) => {
   // console.log("products", product);
   const [quantity, setQuantity] = useState(1);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   
   const [cart, setCart] = useState({
@@ -43,7 +45,7 @@ const Product = ({ product }) => {
     images: product?.images[0].imageUrl,
     options: "default",
     toppings: "none",
-    quantity: 0,
+    quantity: 1,
   });
   const increase = (e) => {
     console.log("increase in clicked");
@@ -63,7 +65,7 @@ const Product = ({ product }) => {
     setCart({...cart, quantity: newquantity});
   }
   const [show, setShow] = useState(false);
-  const [tempprice, setTempprice] = useState(0);
+  // const [tempprice, setTempprice] = useState(0);
 
   const onToggleModal = (e) => {
     e.preventDefault();
@@ -74,7 +76,6 @@ const Product = ({ product }) => {
     setCart({...cart, [e.target.name]: e.target.value});
     console.log("value", e.target.value);
     console.log("name", e.target.name);
-
   }
 
   const onSubmitCart = (e) => {
@@ -211,9 +212,11 @@ const Product = ({ product }) => {
                     </Form.Group>
                     </fieldset>
                   </Form.Row>
-                  <Button className='mx-auto font-weight-bold' variant='warning' type='submit'>
-                    Add to Cart
-                  </Button>
+                  {isAuthenticated 
+                    ? <Button className='mx-auto font-weight-bold' variant='warning' type='submit'>
+                        Add to Cart
+                      </Button>
+                    : <Button as={Link} to="/auth">Login to Add</Button>}
                   <Button className='font-weight-bold cancel-button' variant='warning' onClick={onToggleModal}>
                     Back to Page
                   </Button>
