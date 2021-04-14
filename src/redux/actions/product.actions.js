@@ -112,6 +112,7 @@ productActions.createOrder = ( products, checkout, deliveryFee, status, total ) 
     });
     console.log("successfully created order")
     document.location.href = "/thanks";
+    dispatch(productActions.getAllOrders());
   } catch (error) {
     console.error(error);
     dispatch({

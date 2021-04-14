@@ -14,7 +14,7 @@ function ThankyouPage() {
             <Container>
             <Row style={{marginBottom: "16px"}}>
                 <Col sm={12} md={6}>
-                    <img src="https://i.imgur.com/CnkKW9f.png" className="aboutus-info-image" alt="img"></img>
+                    <img src="https://i.imgur.com/tyfVHMy.png" className="aboutus-info-image" alt="img" style={{maxHeight: "540px", width: "auto"}}></img>
                 </Col>
                 <Col sm={12} md={6} className="d-flex align-items-center">
                     <div style={{marginTop: "auto", marginBottom: "auto"}}>

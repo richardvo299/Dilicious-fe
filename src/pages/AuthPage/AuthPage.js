@@ -70,7 +70,7 @@ function AuthPage() {
   };
     return (
         <div>
-            <h1 style={{textAlign: "center", color: "#4E3021", paddingTop: "16px"}}>Login & Register</h1>
+            <h1 style={{textAlign: "center", color: "#4E3021", paddingTop: "16px", marginBottom: "20px"}}>Login & Register</h1>
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>Dilicious - Login or Sign Up</title>
@@ -81,6 +81,9 @@ function AuthPage() {
             className='d-flex flex-column align-items-center justify-content-center'
         >
             <Row className='login-row'>
+            <Col>
+            <img src="https://i.imgur.com/4aNYnC9.png" alt="loginpageimg" style={{maxHeight: "440px", width: "auto"}}></img>
+            </Col>
             <Col className='d-flex justify-content-center align-items-center login-col'>
                 <Card style={{ width: "auto", minWidth: "320px" }} className='p-3 box-shadow'>
                 <Form className='d-flex flex-column justify-content-center align-content-center text-align-center'>

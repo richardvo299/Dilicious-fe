@@ -14,6 +14,9 @@ const HomeCarousel = () => {
                     src="https://i.imgur.com/04lxOY4.jpg"
                     alt="First slide"
                     />
+                    {/* <Carousel.Caption>
+                    <h3><i>"Everybody deserves a good cake"</i></h3>
+                    </Carousel.Caption> */}
                 </Carousel.Item>
                 <Carousel.Item>
                     <img

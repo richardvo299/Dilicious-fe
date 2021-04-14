@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Button, Modal, ButtonGroup, Container, Card, Form, Table } from "react-bootstrap";
 import Categories from "../../components/Categories/Categories";
+import Orderlist from "../../components/Orderlist/Orderlist";
 import categoryActions from "../../redux/actions/category.actions";
 import Product from "../../components/Products/Product";
 import productActions from "../../redux/actions/product.actions";
@@ -18,6 +19,7 @@ function AdminPage() {
     const [show, setShow] = useState(false);
     const [page, setPage] = useState(1);
     const [status, setStatus] = useState("pending");
+    const [selectedOrder, setSelectedOrder] = useState({});
     const categories = useSelector((state) => state.category.categories);
     const totalPages = useSelector((state) => state.product.pageCount);
     const products = useSelector((state) => state.product.products);
@@ -109,7 +111,7 @@ function AdminPage() {
 
     return (
         <div>
-            <h1>Admin Page</h1>
+            <h1 style={{textAlign:"center"}}>Admin Page</h1>
             <Row style={{marginRight: "0", marginLeft: "0"}}>
                 <Col md={3}>
                 <Card className='p-3 box-shadow'>
@@ -129,7 +131,6 @@ function AdminPage() {
                         <Table striped bordered hover>
                         <thead>
                             <tr>
-                            <th>Order No.</th>
                             <th>Customer's Name</th>
                             <th>Delivery Date</th>
                             <th>Delivery Time</th>
@@ -139,65 +140,10 @@ function AdminPage() {
                             <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {/* {orders.map((o, index) => (
-                                <tr key={index}>
-                                <th>{index}</th>
-                                <td>{o.checkout.recipientName}</td>
-                                <td><Moment format="YYYY/MM/DD">{o.checkout.date}</Moment></td>
-                                <td>{o.checkout.time}</td>
-                                <td>{o.products.length}</td>
-                                <td>{o.total}</td>
-                                <td>{o.status}</td>
-                                <td><Button onClick={onToggleModal}>View</Button><Button>Cancel</Button></td>
-                                </tr>
-                            ))} */}
-                        </tbody>
+                        {orders?.map((o, index) => (
+                                <Orderlist key={index} orders={o}/>
+                        ))}
                         </Table>
-                        {/* {orders.map((o, index) => (
-                            <Modal
-                            show={show}
-                            dialogClassName='modal-90w'
-                            onHide={() => setShow(false)}
-                            aria-labelledby='example-custom-modal-styling-title'
-                            className='d-flex align-items-center justify-content-center'
-                            key={index}
-                            >
-                            <Modal.Header>
-                                <Modal.Title className="text-warning">
-                                    ORDER DETAILS
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                            <Col>
-                                <h5>Recipient Name: {o.checkout.recipientName}</h5>
-                                <h5>Delivery Date: <Moment format="YYYY/MM/DD">{o.checkout.date}</Moment></h5>
-                                <h5>Delivery Time: {o.checkout.time}</h5>
-                                <h5>Number of Items: {o.products.length}</h5>
-                                <h5>Status: <button onClick={onclickStatus}>{o.status}</button></h5>
-                                <h5>Items List:</h5>
-                                {o.products.map((i, index) => (
-                                    <Row key={index}>
-                                    <Col>
-                                        <img src={i.images} style={{height: "100px"}}></img>
-                                    </Col>
-                                    <Col>
-                                    <h5><b>{i.name}</b></h5>
-                                    <h5>{i.price}</h5>
-                                    <h5>{i.options}</h5>
-                                    <h5>{i.toppings}</h5>
-                                    <h5>x {i.quantity}</h5>
-                                    <hr></hr>
-                                    </Col>
-                                    </Row>
-                                ))}
-                                <Button className='font-weight-bold cancel-button' variant='warning' onClick={onToggleModal}>
-                                        Back to Page
-                                </Button>
-                            </Col>
-                            </Modal.Body>
-                            </Modal>
-                        ))} */}
                         </>
 //Products Management
                         : menuname === "Products"
@@ -462,9 +408,9 @@ function AdminPage() {
                             <>
                             <Row className="category-admin-row">
                                 <form onSubmit={createCategory}>
-                                <input type="text" name="category" value={category.name} placeholder="Category Name" required onChange={onChange}>
+                                <input type="text" name="category" value={category.name} placeholder="Category Name" required onChange={onChange} style={{height:"40px", marginRight: "8px"}}>
                                 </input>
-                                <button type="submit">Add Category</button>
+                                <Button type="submit">Add Category</Button>
                                 </form>
                             </Row>
                             <br></br>
@@ -473,6 +419,7 @@ function AdminPage() {
                             <Row className="category-admin-row">
                             <Categories category={c} key={index}></Categories>
                             <button onClick={()=> deleteCategory(c._id)} style={{marginLeft:"8px"}}>X</button>
+                            <hr></hr>
                             </Row>))}
                             </>
                     }
