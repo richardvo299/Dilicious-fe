@@ -20,7 +20,7 @@ productActions.getAllProducts = (keywords = "", page = 1, cat) => async (
       type: types.GET_PRODUCTS_SUCCESS,
       payload: data.data,
     });
-    console.log("products data", data.data)
+    // console.log("products data", data.data)
   } catch (error) {
     console.error(error);
     dispatch({ type: types.GET_PRODUCTS_FAIL, payload: error.message });
@@ -63,7 +63,7 @@ productActions.createProduct = (name, description, price, size, images, options,
 
 productActions.addToCart = (cart) => async (dispatch) => {
   try {
-    console.log(cart);
+    // console.log(cart);
     dispatch({ type: types.ADD_TO_CART_REQUEST });
     const { data } = await api.put(`/user/cart`, cart);
     dispatch({
@@ -83,7 +83,7 @@ productActions.addToCart = (cart) => async (dispatch) => {
 
 productActions.removeFromCart = (id) => async (dispatch) => {
   try {
-    console.log(id);
+    // console.log(id);
     dispatch({ type: types.REMOVE_FROM_CART_REQUEST });
     const { data } = await api.put(`/user/cart/delete`, {id});
     dispatch({
@@ -103,14 +103,14 @@ productActions.removeFromCart = (id) => async (dispatch) => {
 
 productActions.createOrder = ( products, checkout, deliveryFee, status, total ) => async (dispatch) => {
   try {
-    console.log("list of stuffs", products, checkout, deliveryFee, status, total);
+    // console.log("list of stuffs", products, checkout, deliveryFee, status, total);
     dispatch({ type: types.CREATE_ORDER_REQUEST });
     const { data } = await api.post(`/order`, {products, checkout: checkout.orderinfo, deliveryFee, status, total});
     dispatch({
       type: types.CREATE_ORDER_SUCCESS,
       payload: data.data.user,
     });
-    console.log("successfully created order")
+    // console.log("successfully created order")
     document.location.href = "/thanks";
     dispatch(productActions.getAllOrders());
   } catch (error) {
@@ -133,7 +133,7 @@ productActions.getAllOrders = () => async (
       type: types.GET_ORDER_SUCCESS,
       payload: data.data,
     });
-    console.log("Orders data", data.data);
+    // console.log("Orders data", data.data);
   } catch (error) {
     console.error(error);
     dispatch({ type: types.GET_ORDER_FAIL, payload: error.message });

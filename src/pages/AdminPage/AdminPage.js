@@ -24,9 +24,9 @@ function AdminPage() {
     const totalPages = useSelector((state) => state.product.pageCount);
     const products = useSelector((state) => state.product.products);
     const orders = useSelector((state) => state.product.orders);
-    console.log("list of products", products);
-    console.log("total pages", totalPages);
-    console.log("orders list", orders);
+    // console.log("list of products", products);
+    // console.log("total pages", totalPages);
+    // console.log("orders list", orders);
     const [productinfo, setProductinfo] = useState ({
         name: "",
         description: "",
@@ -79,7 +79,7 @@ function AdminPage() {
     };
 
     const deleteCategory = (id) => {
-        console.log("Category Ids", id);
+        // console.log("Category Ids", id);
         if (id) dispatch(categoryActions.deleteCategory(id));
     }
 
@@ -103,11 +103,11 @@ function AdminPage() {
 
     const onChangeProductInfo = (e) => {
         setProductinfo({...productinfo, [e.target.name]: e.target.value});
-        console.log("value", e.target.value);
-        console.log("name", e.target.name);
+        // console.log("value", e.target.value);
+        // console.log("name", e.target.name);
     }
 
-    console.log("current category input", category);
+    // console.log("current category input", category);
 
     return (
         <div>

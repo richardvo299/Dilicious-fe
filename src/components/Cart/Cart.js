@@ -6,7 +6,7 @@ import "./style.css";
 function Cart() {
     const [cartItems, setCartItems] = useState(0);
     const cart = useSelector((state) => state.auth.user.cart);
-    console.log("cart on nav", cart);
+    // console.log("cart on nav", cart);
 
     return (
         <div>

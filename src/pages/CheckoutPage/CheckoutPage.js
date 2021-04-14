@@ -42,7 +42,7 @@ function CheckoutPage() {
         setOrderinfo({...orderinfo, orderType: "pickup"})
     }
 
-    console.log("order info", orderinfo)
+    // console.log("order info", orderinfo)
     return (
         <div>
             <h1 style={{textAlign: "center", color: "#4E3021", marginTop: "16px"}}>Check Out Page</h1>

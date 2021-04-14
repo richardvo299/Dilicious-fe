@@ -8,7 +8,7 @@ function Orderlist({orders}) {
     const [show, setShow] = useState(false);
     const onclickStatus = (e) => {
         e.preventDefault();
-        console.log("status button is clicked");
+        // console.log("status button is clicked");
         if (e.target.value === "pending") {
             setStatus("confirmed");
             e.target.value = status;
