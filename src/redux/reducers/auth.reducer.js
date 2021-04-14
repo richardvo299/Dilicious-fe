@@ -6,7 +6,6 @@ const initialState = {
   user: {},
   isAuthenticated,
   loading: false,
-  accessToken: localStorage.getItem("accessToken"),
 };
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -27,23 +26,23 @@ const authReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         user: payload.user,
-        accessToken: payload.accessToken,
+        // accessToken: payload.accessToken,
         isAuthenticated: true,
       };
     case types.LOGIN_USER_FAIL:
     case types.GET_CURRENT_USER_FAILURE:  
-      return { ...state, loading: false, isAuthenticated: false };
+      return { ...state, loading: false};
     case types.GET_CURRENT_USER_SUCCESS:
       return {
         ...state,
         user: payload.user,
         loading: false,
-        isAuthenticated: true,
+
       };
     case types.REGISTER_FAILURE:
       return { ...state, loading: false };
     case types.LOGOUT_USER:
-      return { ...state, isAuthenticated: false };
+      return { ...state, user: {}, isAuthenticated: false };
     default:
       return state;
   }

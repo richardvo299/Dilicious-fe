@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from "react-bootstrap";
-import logo from "../../images/logo.svg";
+import logo from "../../images/Dilicious.png";
 import { Link } from "react-router-dom";
 import { Fade as Hamburger } from 'hamburger-react';
 import { useSelector, useDispatch } from "react-redux";
@@ -19,6 +19,9 @@ const PublicNavbar = () => {
     const handleLogout = () => {
         dispatch(authActions.logout());
     };
+    useEffect(() => {
+        dispatch(authActions.getCurrentUser());
+    }, [dispatch]);
 
     return (
         <div>

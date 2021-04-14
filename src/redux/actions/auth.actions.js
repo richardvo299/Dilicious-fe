@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import routeActions from "./route.actions";
 const authActions = {};
 
+const url=process.env.REACT_APP_BACKEND_API;
+
 authActions.login = (email, password) => async (dispatch) => {
   dispatch({ type: types.LOGIN_USER_REQUEST, payload: null });
   try {
@@ -11,10 +13,10 @@ authActions.login = (email, password) => async (dispatch) => {
     const name = res.data.data.user.name;
     dispatch({ type: types.LOGIN_USER_SUCCESS, payload: res.data.data });
     toast.success(`Welcome ${name}`);
-    api.defaults.headers.common["authorization"] =
-      "Bearer " + res.data.data.accessToken;
+    // api.defaults.headers.common["authorization"] =
+    //   "Bearer " + res.data.data.accessToken;
 
-    localStorage.setItem("accessToken", res.data.data.accessToken);
+    // localStorage.setItem("accessToken", res.data.data.accessToken);
   } catch (error) {
     console.error(error);
     dispatch({ type: types.LOGIN_USER_FAIL, payload: error.message });
@@ -29,9 +31,20 @@ authActions.getCurrentUser = () => async (dispatch) => {
   //   api.defaults.headers.common["authorization"] = bearerToken;
   // }
   try {
-    const res = await api.get("/user/me");
+    const requestOptions = {
+      method: 'GET',
+      headers: { 
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+      body: null
+  };
+    // const res = await api.get("/user/me");
+    const data = await fetch(`${url}api/user/me`, requestOptions)
+    const res = await data.json()
     console.log("res", res);
-    dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data.data });
+    dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data });
+    console.log("current user", res.data.data)
   } catch (error) {
     console.log(error);
     dispatch({ type: types.GET_CURRENT_USER_FAILURE, payload: error });

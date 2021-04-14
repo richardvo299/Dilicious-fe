@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from "react-bootstrap";
 import "./style.css";
-import logo from "../../images/logo.svg";
+import logo from "../../images/Dilicious.png";
 
 function Footer() {
     return (
@@ -42,6 +42,11 @@ function Footer() {
                         </Col>
                         <Col className="footer-col">
                             <h4>Social Media</h4>
+                            <Row className="footer-row">
+                            <a href="/"><img src="https://i.imgur.com/953FA3p.png" style={{height: "30px"}}></img></a>
+                            <a href="/"><img src="https://i.imgur.com/HaSVbqP.png" style={{height: "30px", marginLeft: "8px"}}></img></a>
+                            <a href="/"><img src="https://i.imgur.com/rQ17MMJ.png" style={{height: "30px", marginLeft: "8px"}}></img></a>
+                            </Row>
                         </Col>
                         </Row>
                     </Col>

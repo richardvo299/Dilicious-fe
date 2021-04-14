@@ -10,7 +10,7 @@ import authActions  from "../../redux/actions/auth.actions";
 function CheckoutPage() {
     const [isDelivery, setIsDelivery] = useState(true);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.auth.user.checkout)
+    // const user = useSelector(state => state.auth.user.checkout)
     const [orderinfo, setOrderinfo] = useState({
         recipientName: "",
         phone: "",
@@ -21,9 +21,7 @@ function CheckoutPage() {
     })
     const onChangeOrderInfo = (e) => {
         setOrderinfo({...orderinfo, [e.target.name]: e.target.value});
-        console.log("value", e.target.value);
-        console.log("name", e.target.name);
-      }
+    }
     // const accessToken = useSelector(state => state.auth.accessToken)
 
     useEffect(() => {
@@ -128,7 +126,7 @@ function CheckoutPage() {
                     <Form.Label>
                         Delivery Time
                     </Form.Label>
-                    <Form.Control type="time" name="time" onChange={onChangeOrderInfo} />
+                    <Form.Control type="time" name="time" min="09:00" max="18:00" onChange={onChangeOrderInfo} />
                     </Form.Group>
                     <Form.Group controlId='delivery-date'>
                     <Form.Label>
@@ -156,7 +154,7 @@ function CheckoutPage() {
                     <Form.Label>
                         Pick-up Time
                     </Form.Label>
-                    <TimePicker start="9:00" end="18:00" step={30} />
+                    <Form.Control type="time" name="time" min="09:00" max="18:00" onChange={onChangeOrderInfo} />
                     </Form.Group>
                     <Form.Group controlId='pickup-date'>
                     <Form.Label>

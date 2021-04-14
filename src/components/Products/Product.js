@@ -85,7 +85,7 @@ const Product = ({ product }) => {
   }
 
   return (
-    <div>
+    <div className="product-cards">
     <Card className="text-center">
       <div>
       <Card.Img variant="top" src={product.images[0].imageUrl} />

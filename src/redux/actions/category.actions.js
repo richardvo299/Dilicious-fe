@@ -8,14 +8,12 @@ categoryActions.getAllCategories = () => async (
   dispatch
 ) => {
   try {
-    console.log("you're here");
     dispatch({ type: types.GET_CATEGORIES_REQUEST });
     const { data } = await api.get(`/category`);
     dispatch({
       type: types.GET_CATEGORIES_SUCCESS,
       payload: data.data,
     });
-    console.log("categories data", data.data);
   } catch (error) {
     console.error(error);
     dispatch({ type: types.GET_CATEGORIES_FAIL, payload: error.message });

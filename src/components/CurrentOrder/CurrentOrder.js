@@ -5,19 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import productActions from "../../redux/actions/product.actions";
 import "./style.css";
 import CurrencyFormat from 'react-currency-format';
-
-// function Subtotal() {
-//     const user = useSelector(state => state.auth.user);
-//     const cart = user.cart;
-//     const subtotal = user.cart?.reduce((a, b) => a.price * a.quantity + b.price * b.quantity, 0);
-//     console.log(subtotal);
-//     console.log(cart);
-//     return (
-//         <div>
-//             <h4>{subtotal}</h4>
-//         </div>
-//     )
-// }
+import authActions  from "../../redux/actions/auth.actions";
 
 function CurrentOrder(orderinfo) {
     console.log("orderinfo on the right", orderinfo);
@@ -29,28 +17,23 @@ function CurrentOrder(orderinfo) {
     }
     let subtotal;
     let total;
+    let fee;
     if (user) {
         subtotal = user.cart?.reduce((b, a) => b + a.price * a.quantity, 0);
-        total = subtotal + 40000;
+        if (subtotal > 500000 || orderinfo.orderType=="pickup") {
+            fee = 0
+        } else { fee = 40000 }
+        total = subtotal + fee;
     }
-
-    
-    // products = [{ 
-    //         name: "",
-    //         price: 0,
-    //         images: "",
-    //         options: "default",
-    //         toppings: "none",
-    //         quantity: 1,
-    //     }],
-
+    useEffect(() => {
+        dispatch(authActions.getCurrentUser());
+    }, [dispatch]);
     const submitOrder = () => {
-        dispatch(productActions.createOrder(user.cart, orderinfo, 40000, "pending", total))
+        dispatch(productActions.createOrder(user.cart, orderinfo, fee, "pending", total))
     }
 
     return (
         <div>
-
             <Card className='p-3 box-shadow'>
                 <h2>Order</h2>
                 <hr></hr>
@@ -86,10 +69,12 @@ function CurrentOrder(orderinfo) {
                 </h5>
                 <hr></hr>
                 <h5 style={{textAlign: "right"}}>Delivery Fee</h5>
-                <h5 style={{textAlign: "right"}}>40,000 VND</h5>
+                <h5 style={{textAlign: "right"}}>
+                <b><CurrencyFormat value={fee} displayType={'text'} thousandSeparator={true}/> VND</b>
+                </h5>
                 <hr></hr>
-                <h5 style={{textAlign: "right"}}>Total</h5>
-                <h5 style={{textAlign: "right"}}><b><CurrencyFormat value={total} displayType={'text'} thousandSeparator={true}/> VND</b></h5>
+                <h4 style={{textAlign: "right"}}>Total</h4>
+                <h4 style={{textAlign: "right"}}><b><CurrencyFormat value={total} displayType={'text'} thousandSeparator={true}/> VND</b></h4>
                 <Button
                     variant='warning'
                     className='font-weight-bold'

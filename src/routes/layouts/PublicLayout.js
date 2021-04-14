@@ -15,6 +15,7 @@ import CheckoutPage from "../../pages/CheckoutPage";
 import DeliveryPage from "../../pages/DeliveryPage";
 import AdminPage from "../../pages/AdminPage";
 import NotFoundPage from "../../pages/NotFoundPage";
+import ThankyouPage from "../../pages/ThankyouPage";
 
 const PublicLayout = () => {
   return (
@@ -29,6 +30,7 @@ const PublicLayout = () => {
           <Route exact path="/checkout" component={CheckoutPage} />
           <Route exact path="/delivery" component={DeliveryPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
+          <Route exact path="/thanks" component={ThankyouPage} />
           <Route path="/search/:keywords" component={HomePage} />
           <PrivateRoute exact path="/admin" component={AdminPage} />
           <PrivateRoute path="/:id" exact component={ProfilePage} />
