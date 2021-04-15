@@ -42,11 +42,11 @@ authActions.getCurrentUser = () => async (dispatch) => {
     // const res = await api.get("/user/me");
     const data = await fetch(`${url}api/user/me`, requestOptions)
     const res = await data.json()
-    console.log("res", res);
+    // console.log("res", res);
     dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data });
-    console.log("current user", res.data.data)
+    // console.log("current user", res.data.data)
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     dispatch({ type: types.GET_CURRENT_USER_FAILURE, payload: error });
   }
 };
@@ -74,5 +74,5 @@ authActions.register = (name, email, password) => async (dispatch) => {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }
 }
-console.log(authActions);
+// console.log(authActions);
 export default authActions;

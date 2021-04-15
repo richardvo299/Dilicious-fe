@@ -20,12 +20,12 @@ export default function HomePage() {
     const [cat, setCat] = useState(null);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const totalPages = useSelector((state) => state.product.pageCount);
-    console.log("total pages", totalPages);
+    // console.log("total pages", totalPages);
 
     const dispatch = useDispatch();
     const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
-    console.log(products);
+    // console.log(products);
     const categories = useSelector((state) => state.category.categories);
     const loading = useSelector((state) => state.product.loading);
 
@@ -46,10 +46,10 @@ export default function HomePage() {
     const onClickAll = (e) => {
         e.preventDefault();
         setCat(null);
-        console.log(cat);
+        // console.log(cat);
     }
 
-    console.log("current cat", cat);
+    // console.log("current cat", cat);
     return(
         <>
         <Helmet>

@@ -74,13 +74,13 @@ const Product = ({ product }) => {
 
   const onChangeCart = (e) => {
     setCart({...cart, [e.target.name]: e.target.value});
-    console.log("value", e.target.value);
-    console.log("name", e.target.name);
+    // console.log("value", e.target.value);
+    // console.log("name", e.target.name);
   }
 
   const onSubmitCart = (e) => {
     e.preventDefault();
-    console.log("cart", cart)
+    // console.log("cart", cart)
     dispatch(productActions.addToCart(cart));
   }
 

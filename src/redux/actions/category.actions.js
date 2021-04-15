@@ -58,7 +58,7 @@ categoryActions.deleteCategory = (id) => async (dispatch) => {
   dispatch({ type: types.DELETE_CATEGORY_REQUEST, payload: null });
   try {
     const res = await api.delete(`/category/${id}/delete`);
-    console.log("delete", res);
+    // console.log("delete", res);
     dispatch({ type: types.DELETE_CATEGORY_SUCCESS, payload: res.data.data });
     toast.success("Category deleted");
     dispatch(categoryActions.getAllCategories());

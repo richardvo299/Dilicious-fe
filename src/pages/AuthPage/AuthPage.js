@@ -27,7 +27,7 @@ function AuthPage() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const role = useSelector((state) => state.auth.user.role);
-  console.log("current role", role);
+//   console.log("current role", role);
 
   const [user, setUser] = useState({
     name: "",
@@ -48,7 +48,7 @@ function AuthPage() {
 
   const onChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
-    console.log(user.email, user.password);
+    // console.log(user.email, user.password);
   };
 
   if (isAuthenticated) {
@@ -115,7 +115,7 @@ function AuthPage() {
                     >
                     Login
                     </Button>
-                    <h6 className='text-muted text-center mt-1'>Or Sign in with</h6>
+                    {/* <h6 className='text-muted text-center mt-1'>Or Sign in with</h6>
                     <Row>
                     <Col>
                         <GoogleLogin
@@ -142,7 +142,7 @@ function AuthPage() {
                         onFailure={() => console.log("Facebook Login Failure")}
                         />
                     </Col>
-                    </Row>
+                    </Row> */}
                     <hr className='hr' />
                     <h6 className='text-muted text-center mt-1'>No account yet?</h6>
                     <Button

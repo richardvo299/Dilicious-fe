@@ -1,7 +1,7 @@
 import * as types from "../constants/auth.constants";
 
 const isAuthenticated = !!localStorage.getItem("accessToken");
-console.log("isAuth", isAuthenticated);
+// console.log("isAuth", isAuthenticated);
 const initialState = {
   user: {},
   isAuthenticated,

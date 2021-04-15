@@ -8,7 +8,7 @@ import CurrencyFormat from 'react-currency-format';
 import authActions  from "../../redux/actions/auth.actions";
 
 function CurrentOrder(orderinfo) {
-    console.log("orderinfo on the right", orderinfo);
+    // console.log("orderinfo on the right", orderinfo);
     const user = useSelector(state => state.auth.user);
     const dispatch = useDispatch();
     const [temptotal, setTemptotal] = useState(0);
