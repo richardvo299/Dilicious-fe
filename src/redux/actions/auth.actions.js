@@ -13,10 +13,11 @@ authActions.login = (email, password) => async (dispatch) => {
     const name = res.data.data.user.name;
     dispatch({ type: types.LOGIN_USER_SUCCESS, payload: res.data.data });
     toast.success(`Welcome ${name}`);
-    // api.defaults.headers.common["authorization"] =
-    //   "Bearer " + res.data.data.accessToken;
+    api.defaults.headers.common["authorization"] =
+      "Bearer " + res.data.data.accessToken;
 
-    // localStorage.setItem("accessToken", res.data.data.accessToken);
+    localStorage.setItem("accessToken", res.data.data.accessToken);
+    window.location.replace("/");
   } catch (error) {
     console.error(error);
     dispatch({ type: types.LOGIN_USER_FAIL, payload: error.message });
@@ -54,7 +55,7 @@ authActions.getCurrentUser = () => async (dispatch) => {
 authActions.logout = () => async (dispatch) => {
   console.log("LOGOUT");
   delete api.defaults.headers.common["authorization"];
-  localStorage.setItem("accessToken", "");
+  localStorage.removeItem("accessToken");
   dispatch({ type: types.LOGOUT_USER, payload: null });
   toast.success(`Thank you`);
 };
@@ -74,5 +75,45 @@ authActions.register = (name, email, password) => async (dispatch) => {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }
 }
+
+authActions.addToCart = (cart) => async (dispatch) => {
+  try {
+    // console.log(cart);
+    dispatch({ type: types.ADD_TO_CART_REQUEST });
+    const { data } = await api.put(`/user/cart`, cart);
+    dispatch({
+      type: types.ADD_TO_CART_SUCCESS,
+      payload: data.data.user,
+    });
+    toast.success(`Added to cart`);
+    dispatch(authActions.getCurrentUser());
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: types.ADD_TO_CART_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+authActions.removeFromCart = (id) => async (dispatch) => {
+  try {
+    // console.log(id);
+    dispatch({ type: types.REMOVE_FROM_CART_REQUEST });
+    const { data } = await api.put(`/user/cart/delete`, {id});
+    dispatch({
+      type: types.REMOVE_FROM_CART_SUCCESS,
+      payload: data.data.user,
+    });
+    toast.success(`Item removed from cart`);
+    dispatch(authActions.getCurrentUser());
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: types.REMOVE_FROM_CART_FAIL,
+      payload: error.message,
+    });
+  }
+};
 // console.log(authActions);
 export default authActions;

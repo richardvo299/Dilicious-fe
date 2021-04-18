@@ -25,7 +25,7 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const keywords = useParams().keywords;
     const products = useSelector((state) => state.product.products);
-    // console.log(products);
+    console.log(products);
     const categories = useSelector((state) => state.category.categories);
     const loading = useSelector((state) => state.product.loading);
 

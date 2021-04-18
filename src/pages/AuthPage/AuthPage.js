@@ -26,7 +26,6 @@ const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 function AuthPage() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const role = useSelector((state) => state.auth.user.role);
 //   console.log("current role", role);
 
   const [user, setUser] = useState({
@@ -52,6 +51,7 @@ function AuthPage() {
   };
 
   if (isAuthenticated) {
+    const role = user.role;
     if (role==="admin") {
         return <Redirect to='/admin'/>;
     }

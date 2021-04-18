@@ -5,6 +5,7 @@ import "./style.css";
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product.actions";
+import authActions from "../../redux/actions/auth.actions";
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(1);
@@ -81,7 +82,7 @@ const Product = ({ product }) => {
   const onSubmitCart = (e) => {
     e.preventDefault();
     // console.log("cart", cart)
-    dispatch(productActions.addToCart(cart));
+    dispatch(authActions.addToCart(cart));
   }
 
   return (
