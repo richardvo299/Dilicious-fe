@@ -13,7 +13,7 @@ function CurrentOrder(orderinfo) {
     const dispatch = useDispatch();
     const [temptotal, setTemptotal] = useState(0);
     const deleteItem = (id) => {
-        if (id) dispatch(productActions.removeFromCart(id));
+        if (id) dispatch(authActions.removeFromCart(id));
     }
     let subtotal;
     let total;

@@ -5,6 +5,8 @@ import authActions from "./auth.actions";
 
 const productActions = {};
 
+const url=process.env.REACT_APP_BACKEND_API;
+
 productActions.getAllProducts = (keywords = "", page = 1, cat) => async (
   dispatch
 ) => {
@@ -61,46 +63,6 @@ productActions.createProduct = (name, description, price, size, images, options,
   }
 }
 
-productActions.addToCart = (cart) => async (dispatch) => {
-  try {
-    // console.log(cart);
-    dispatch({ type: types.ADD_TO_CART_REQUEST });
-    const { data } = await api.put(`/user/cart`, cart);
-    dispatch({
-      type: types.ADD_TO_CART_SUCCESS,
-      payload: data.data.user,
-    });
-    toast.success(`Added to cart`);
-    dispatch(authActions.getCurrentUser());
-  } catch (error) {
-    console.error(error);
-    dispatch({
-      type: types.ADD_TO_CART_FAIL,
-      payload: error.message,
-    });
-  }
-};
-
-productActions.removeFromCart = (id) => async (dispatch) => {
-  try {
-    // console.log(id);
-    dispatch({ type: types.REMOVE_FROM_CART_REQUEST });
-    const { data } = await api.put(`/user/cart/delete`, {id});
-    dispatch({
-      type: types.REMOVE_FROM_CART_SUCCESS,
-      payload: data.data.user,
-    });
-    toast.success(`Item removed from cart`);
-    dispatch(authActions.getCurrentUser());
-  } catch (error) {
-    console.error(error);
-    dispatch({
-      type: types.REMOVE_FROM_CART_FAIL,
-      payload: error.message,
-    });
-  }
-};
-
 productActions.createOrder = ( products, checkout, deliveryFee, status, total ) => async (dispatch) => {
   try {
     // console.log("list of stuffs", products, checkout, deliveryFee, status, total);
@@ -128,10 +90,23 @@ productActions.getAllOrders = () => async (
 ) => {
   try {
     dispatch({ type: types.GET_ORDER_REQUEST });
-    const { data } = await api.get(`/order`);
+    const requestOptions = {
+      method: 'GET',
+      headers: { 
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+      body: null
+  };
+    // const res = await api.get("/user/me");
+    const data = await fetch(`${url}api/order`, requestOptions)
+    const res = await data.json()
+    console.log("response", res)
+    
+    // const { data } = await api.get(`/order`);
     dispatch({
       type: types.GET_ORDER_SUCCESS,
-      payload: data.data,
+      payload: res.data,
     });
     // console.log("Orders data", data.data);
   } catch (error) {
