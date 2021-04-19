@@ -14,6 +14,7 @@ const PublicNavbar = () => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const role = useSelector((state) => state.auth.user.role);
     console.log("authenticated?", isAuthenticated);
 
     const handleLogout = () => {
@@ -38,16 +39,25 @@ const PublicNavbar = () => {
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} to="/delivery">Delivery</Nav.Link>
                     <Nav.Link as={Link} to="/about">About us</Nav.Link>
+                    {
+                        role==="admin"
+                        ?
+                        <>
+                        <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
+                        </>
+                        :
+                        <></>
+                    }
                 </Nav>
                 <Nav className="ml-auto">
                     {isAuthenticated 
                         ? 
-                        <> 
-                        <Nav.Link as={Link} to="/checkout">
-                            <Cart></Cart>
-                        </Nav.Link>
-                        <Nav.Link as={Link} to="/" onClick={handleLogout}>Log out</Nav.Link>
-                        </>
+                            <>
+                            <Nav.Link as={Link} to="/checkout">
+                                <Cart></Cart>
+                            </Nav.Link>
+                            <Nav.Link as={Link} to="/" onClick={handleLogout}>Log out</Nav.Link>
+                            </>
                         :
                         <Nav.Link as={Link} to="/auth">Login | Register</Nav.Link>}
                 </Nav>

@@ -64,7 +64,7 @@ export default function HomePage() {
         <Container>
             <Row>
                 <Col sm={12} md={6}>
-                    <a href="/"><img src="https://i.imgur.com/BORmKTB.png" alt="" className="aboutus-info-image"></img></a>   
+                    <a href="#ordersection"><img src="https://i.imgur.com/BORmKTB.png" alt="" className="aboutus-info-image"></img></a>   
                 </Col>
                 <Col sm={12} md={6}>
                     <a href="/delivery"><img src="https://i.imgur.com/R2kvHKJ.png" alt="" className="aboutus-info-image"></img></a>
@@ -72,8 +72,8 @@ export default function HomePage() {
             </Row>
         </Container>
         </div>
-        <div>
-            <h2 className="ordernow">ORDER NOW</h2>
+        <div style={{marginTop: "16px"}}>
+            <h2 id="ordersection" className="ordernow">ORDER NOW</h2>
             <img 
                 src={arrowdown} 
                 style={{height: "20px", display: "block", marginLeft: "auto", marginRight: "auto"}}

@@ -8,9 +8,9 @@ function Footer() {
         <div className="footer">
             <div className="footer-content">
                 <Row className="footer-row">
-                    <Col sm={12} md={9}>
-                        <Row>
-                        <Col className="footer-col">
+                    <Col xs={12} md={9}>
+                        <Row style={{marginBottom: "16px"}}>
+                        <Col xs={6} lg={3} className="footer-col">
                             <h4>More Info</h4>
                             <a href="/">View Specials</a>
                             <br></br>
@@ -20,8 +20,8 @@ function Footer() {
                             <br></br>
                             <a href="/">News</a>
                         </Col>
-                        <Col className="footer-col">
-                            <h4>Collaboration</h4>
+                        <Col xs={6} lg={3} className="footer-col">
+                            <h4>Collab</h4>
                             <a href="/">Product Recalls</a>
                             <br></br>
                             <a href="/">Guest Care</a>
@@ -30,7 +30,7 @@ function Footer() {
                             <br></br>
                             <a href="/">Buyers</a>
                         </Col>
-                        <Col className="footer-col">
+                        <Col xs={6} lg={3} className="footer-col">
                             <h4>Others</h4>
                             <a href="/">Careers</a>
                             <br></br>
@@ -40,17 +40,17 @@ function Footer() {
                             <br></br>
                             <a href="/">Q & A</a>
                         </Col>
-                        <Col className="footer-col">
+                        <Col xs={6} lg={3} className="footer-col">
                             <h4>Social Media</h4>
                             <Row className="footer-row">
-                            <a href="/"><img src="https://i.imgur.com/953FA3p.png" style={{height: "30px"}}></img></a>
-                            <a href="/"><img src="https://i.imgur.com/HaSVbqP.png" style={{height: "30px", marginLeft: "8px"}}></img></a>
-                            <a href="/"><img src="https://i.imgur.com/rQ17MMJ.png" style={{height: "30px", marginLeft: "8px"}}></img></a>
+                            <a href="/"><img src="https://i.imgur.com/953FA3p.png" style={{height: "30px", marginRight: "8px", marginBottom: "8px"}}></img></a>
+                            <a href="/"><img src="https://i.imgur.com/HaSVbqP.png" style={{height: "30px", marginRight: "8px", marginBottom: "8px"}}></img></a>
+                            <a href="/"><img src="https://i.imgur.com/rQ17MMJ.png" style={{height: "30px", marginBottom: "8px"}}></img></a>
                             </Row>
                         </Col>
                         </Row>
                     </Col>
-                    <Col sm={12} md={3}>
+                    <Col sm={12} md={3} style={{marginTop: "16px", marginBottom: "16px"}}>
                         <img src={logo} alt="mentee" width="200px"></img>
                         <br></br>
                         <br></br>

@@ -21,6 +21,8 @@
 
 .footer-col {
     text-align: left;
+    margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 .footer-col > a {
