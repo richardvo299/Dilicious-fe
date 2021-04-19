@@ -33,7 +33,7 @@ const PublicLayout = () => {
           <Route exact path="/thanks" component={ThankyouPage} />
           <Route path="/search/:keywords" component={HomePage} />
           <PrivateRoute exact path="/admin" component={AdminPage} />
-          <PrivateRoute path="/:id" exact component={ProfilePage} />
+          {/* <PrivateRoute path="/:id" exact component={ProfilePage} /> */}
           <Route component={NotFoundPage} />
         </Switch>
       </Container>

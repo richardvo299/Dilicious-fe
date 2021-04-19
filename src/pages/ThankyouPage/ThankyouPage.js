@@ -12,7 +12,7 @@ function ThankyouPage() {
                 <link rel='canonical' href='/thanks' />
             </Helmet>
             <Container>
-            <Row style={{marginBottom: "16px"}}>
+            <Row style={{marginBottom: "16px", marginLeft: "0px", marginRight: "0px"}}>
                 <Col sm={12} md={6}>
                     <img src="https://i.imgur.com/tyfVHMy.png" className="aboutus-info-image" alt="img" style={{maxHeight: "540px", width: "auto"}}></img>
                 </Col>

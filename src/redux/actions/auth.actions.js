@@ -57,6 +57,7 @@ authActions.logout = () => async (dispatch) => {
   delete api.defaults.headers.common["authorization"];
   localStorage.removeItem("accessToken");
   dispatch({ type: types.LOGOUT_USER, payload: null });
+  window.location.replace("/");
   toast.success(`Thank you`);
 };
 
