@@ -38,6 +38,7 @@ const Product = ({ product }) => {
   // console.log("products", product);
   const [quantity, setQuantity] = useState(1);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  // const loading = useSelector((state) => state.product.loading);
   const dispatch = useDispatch();
   
   const [cart, setCart] = useState({
