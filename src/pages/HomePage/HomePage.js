@@ -125,7 +125,7 @@ export default function HomePage() {
                 color="#4E3021"
                 height={200}
                 width={200}
-                timeout={5000}
+                timeout={3000}
             />
             </div>
             <h3 style={{textAlign: "center"}}><i>Loading... Please wait...</i></h3>

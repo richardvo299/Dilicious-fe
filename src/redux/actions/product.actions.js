@@ -20,7 +20,7 @@ productActions.getAllProducts = (keywords = "", page = 1, cat) => async (
     setTimeout(() => {dispatch({
       type: types.GET_PRODUCTS_SUCCESS,
       payload: data.data,
-    })}, 3000)
+    })}, 2000)
     ;
     // console.log("products data", data.data)
   } catch (error) {
