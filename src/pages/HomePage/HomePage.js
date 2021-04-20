@@ -12,6 +12,7 @@ import HomeCarousel from "../../components/HomeCarousel/HomeCarousel";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Pagination from "../../components/Pagination/Pagination";
 import arrowdown from "../../images/arrowdown.svg";
+import Loader from "react-loader-spinner";
 import "./style.css";
 
 export default function HomePage() {
@@ -81,39 +82,56 @@ export default function HomePage() {
             </img>
         </div>
         <div>
-        
-        <Row className="categories-row">
-            <Col md={6}>
-            <Row>
-            <Button className="cat-but" onClick={onClickAll}>All</Button>
-            <Button className="cat-but" onClick={(e) => setCat("chocolate")}>Chocolate</Button>
-            <Button className="cat-but" onClick={(e) => setCat("matcha")}>Matcha</Button>
-            <Button className="cat-but" onClick={(e) => setCat("cheese")}>Cheese</Button>
-            <Button className="cat-but" onClick={(e) => setCat("fruits")}>Fruits</Button>
-            <Button className="cat-but" onClick={(e) => setCat("others")}>Others</Button>
-            {/* {categories.map((c, index) => (
-                <Categories category={c} handleCat={handleCat} key={index}></Categories>))} */}
-            </Row>
-            </Col>
-            <Col md={6}><SearchBar></SearchBar></Col>
-        </Row>
-        </div>
-        <hr className="homepagehr"></hr>
-        <Row className="cards-wrapper">
+        {!loading
+            ?
             <>
-                {/* {!keywords} */}
-                {products.map((p, index) => (
-                <Col key={index} sm={12} md={6} lg={4} xl={3}>
-                    <Product product={p} />
+            <Row className="categories-row">
+                <Col md={6}>
+                <Row>
+                <Button className="cat-but" onClick={onClickAll}>All</Button>
+                <Button className="cat-but" onClick={(e) => setCat("chocolate")}>Chocolate</Button>
+                <Button className="cat-but" onClick={(e) => setCat("matcha")}>Matcha</Button>
+                <Button className="cat-but" onClick={(e) => setCat("cheese")}>Cheese</Button>
+                <Button className="cat-but" onClick={(e) => setCat("fruits")}>Fruits</Button>
+                <Button className="cat-but" onClick={(e) => setCat("others")}>Others</Button>
+                {/* {categories.map((c, index) => (
+                    <Categories category={c} handleCat={handleCat} key={index}></Categories>))} */}
+                </Row>
                 </Col>
-                ))}
+                <Col md={6}><SearchBar></SearchBar></Col>
+            </Row>
+            <hr className="homepagehr"></hr>
+            <Row className="cards-wrapper">
+                    {/* {!keywords} */}
+                    {products.map((p, index) => (
+                    <Col key={index} sm={12} md={6} lg={4} xl={3}>
+                        <Product product={p} />
+                    </Col>
+                    ))}
+            </Row>
+            <Row>
+            <Pagination 
+                totalPages={totalPages}
+                handlePageChange={handlePageChange}
+                selectedPage={page - 1}
+            />
+            </Row>
             </>
-        </Row>
-        <Pagination 
-            totalPages={totalPages}
-            handlePageChange={handlePageChange}
-            selectedPage={page - 1}
-        />
+            :
+            <>
+            <div className="py-5 d-flex justify-content-center align-items-center">
+            <Loader
+                type="Watch"
+                color="#4E3021"
+                height={200}
+                width={200}
+                timeout={5000}
+            />
+            </div>
+            <h3 style={{textAlign: "center"}}><i>Loading... Please wait...</i></h3>
+            </>}
+        </div>
+        
         <Testimonials />
     </>
     );
