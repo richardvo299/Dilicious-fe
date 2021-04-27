@@ -1,3 +1,8 @@
+# HELLO AND WELCOME TO DILICIOUS
+
+An online bakery with customizable options + an Admin dashboard for page management and orders management.\
+Created by: Rick Vo
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
