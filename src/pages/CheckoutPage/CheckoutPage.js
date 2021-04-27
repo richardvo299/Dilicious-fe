@@ -49,7 +49,7 @@ function CheckoutPage() {
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>Dilicious - Checkout</title>
-                <link rel='canonical' href='http://mysite.com/example' />
+                <link rel='canonical' href='/checkout' />
             </Helmet>
             <Container>
             <Row>

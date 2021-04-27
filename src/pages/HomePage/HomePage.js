@@ -56,7 +56,7 @@ export default function HomePage() {
         <Helmet>
                 <meta charSet='utf-8' />
                 <title>Dilicious - Home</title>
-                <link rel='canonical' href='http://mysite.com/example' />
+                <link rel='canonical' href='/' />
         </Helmet>
         <div>
         <HomeCarousel></HomeCarousel>

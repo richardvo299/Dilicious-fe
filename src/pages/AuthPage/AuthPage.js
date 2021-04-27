@@ -74,7 +74,7 @@ function AuthPage() {
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>Dilicious - Login or Sign Up</title>
-                <link rel='canonical' href='http://mysite.com/example' />
+                <link rel='canonical' href='/auth' />
             </Helmet>
         <Container
             fluid
